@@ -59,6 +59,7 @@ public class Main extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setMaximizedBounds(new java.awt.Rectangle(1024, 576, 576, 576));
         setMinimumSize(new java.awt.Dimension(1024, 576));
+        setPreferredSize(new java.awt.Dimension(1024, 576));
         setResizable(false);
         setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -145,7 +146,7 @@ public class Main extends javax.swing.JFrame {
         alertPanel.add(alertText, java.awt.BorderLayout.CENTER);
         alertText.getAccessibleContext().setAccessibleDescription("");
 
-        getContentPane().add(alertPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 270, 50));
+        getContentPane().add(alertPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
