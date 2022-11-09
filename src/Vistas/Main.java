@@ -1,7 +1,7 @@
 // background no tocar,es solo el back de label no cumple ninguna funcion mas
 
-package domain;
-import domain.clases.Validacion;
+package Vistas;
+import Modelo.Validacion;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -58,7 +58,6 @@ public class Main extends javax.swing.JFrame {
         setIconImages(null);
         setLocationByPlatform(true);
         setMaximizedBounds(new java.awt.Rectangle(1024, 576, 576, 576));
-        setMaximumSize(new java.awt.Dimension(1024, 576));
         setMinimumSize(new java.awt.Dimension(1024, 576));
         setResizable(false);
         setType(java.awt.Window.Type.POPUP);
