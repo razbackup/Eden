@@ -188,7 +188,6 @@ public class Main extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                var xd = "";
                 new Main().setVisible(true);
             }
         });
