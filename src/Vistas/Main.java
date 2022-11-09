@@ -7,8 +7,6 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import java.awt.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -165,15 +163,16 @@ public class Main extends javax.swing.JFrame {
         System.out.println(this.userText.getText());
         if (val.validName(nombre)){
             this.alertPanel.setVisible(true);
-            System.out.println(this.alertPanel.getWidth());
             this.alertPanel.setBackground(new Color(2,126,22));
             this.alertText.setText("Entrando como " + this.userText.getText());
+            Menu openMenu = new Menu(); // Abre menu
+            openMenu.setVisible(true);
+            this.setVisible(false);
         } else {
             System.out.println(false);
             this.alertPanel.setVisible(true);
             this.alertPanel.setBackground(new Color(126,2,2));
             this.alertText.setText("Usuario no existente\n, nombre invalido");
-        
         }
     }//GEN-LAST:event_ingresarActionPerformed
 

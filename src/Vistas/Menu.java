@@ -4,17 +4,20 @@
  */
 package Vistas;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
 /**
  *
  * @author anon
  */
 public class Menu extends javax.swing.JFrame {
-
-    /**
-     * Creates new form comun
-     */
+    FondoPanel fondo = new FondoPanel();
     public Menu() {
         initComponents();
+        this.setContentPane(fondo);
     }
 
     /**
@@ -28,7 +31,6 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximizedBounds(new java.awt.Rectangle(1024, 576, 576, 576));
-        setPreferredSize(new java.awt.Dimension(1024, 576));
         setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -48,7 +50,27 @@ public class Menu extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(() -> {
+            new Menu().setVisible(true);
+        });
+    }
 
+        // Clase interna con la cual agregamos un background con imagen al JFrame
+    class FondoPanel extends JPanel{
+        private Image imagen;
+        
+        @Override
+        public void paint(Graphics g){
+            imagen = new ImageIcon(getClass().getResource("/imagen/576.png")).getImage(); // Designamos la ruta
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this); // La posicion
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
