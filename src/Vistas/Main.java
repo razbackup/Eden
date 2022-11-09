@@ -16,7 +16,6 @@ import javax.swing.*;
  * @author Vicente
  */
 public class Main extends javax.swing.JFrame {
-    
     FondoPanel fondo = new FondoPanel(); // Creamos el fondo
     Validacion val = new Validacion();
     public Main() {
@@ -189,6 +188,7 @@ public class Main extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                var xd = "";
                 new Main().setVisible(true);
             }
         });
