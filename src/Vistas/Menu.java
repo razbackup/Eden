@@ -4,6 +4,7 @@
  */
 package Vistas;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -16,8 +17,10 @@ import javax.swing.JPanel;
 public class Menu extends javax.swing.JFrame {
     FondoPanel fondo = new FondoPanel();
     public Menu() {
-        initComponents();
         this.setContentPane(fondo);
+        initComponents();
+        hub_menu.setBackground(new Color(10,86,18,147));
+        ingresarPlantas.setBackground(new Color(0,0,0,0));
     }
 
     /**
@@ -29,23 +32,59 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        hub_menu = new javax.swing.JPanel();
+        ingresarPlantas = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximizedBounds(new java.awt.Rectangle(1024, 576, 576, 576));
         setResizable(false);
+
+        hub_menu.setBackground(new java.awt.Color(10, 86, 18));
+        hub_menu.setPreferredSize(new java.awt.Dimension(257, 576));
+
+        ingresarPlantas.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        ingresarPlantas.setText("Ingresar Plantas");
+        ingresarPlantas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        ingresarPlantas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ingresarPlantas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ingresarPlantasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout hub_menuLayout = new javax.swing.GroupLayout(hub_menu);
+        hub_menu.setLayout(hub_menuLayout);
+        hub_menuLayout.setHorizontalGroup(
+            hub_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ingresarPlantas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+        );
+        hub_menuLayout.setVerticalGroup(
+            hub_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(hub_menuLayout.createSequentialGroup()
+                .addGap(159, 159, 159)
+                .addComponent(ingresarPlantas, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(388, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1024, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(hub_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 767, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 576, Short.MAX_VALUE)
+            .addComponent(hub_menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    // BOTONES DEL MENU
+    private void ingresarPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarPlantasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ingresarPlantasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -72,5 +111,7 @@ public class Menu extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel hub_menu;
+    private javax.swing.JButton ingresarPlantas;
     // End of variables declaration//GEN-END:variables
 }
