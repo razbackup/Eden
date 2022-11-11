@@ -1,13 +1,16 @@
 // background no tocar,es solo el back de label no cumple ninguna funcion mas
 
 package Vistas;
-import Modelo.Validacion;
+import Controlador.Validacion;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import java.awt.*;
 import javax.swing.*;
+import BD.Conexion;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,7 +19,13 @@ import javax.swing.*;
 public class Main extends javax.swing.JFrame {
     FondoPanel fondo = new FondoPanel(); // Creamos el fondo
     Validacion val = new Validacion();
+    Conexion connect = new Conexion();
     public Main() {
+        try {
+            System.out.println(connect.connection());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.setContentPane(fondo); // Agrega la imagen
         initComponents();
         alertPanel.setVisible(false);

@@ -14,13 +14,12 @@ import javax.swing.JPanel;
  *
  * @author anon
  */
-public class Menu extends javax.swing.JFrame {
+public class Menu extends Main {
     FondoPanel fondo = new FondoPanel();
     public Menu() {
         this.setContentPane(fondo);
         initComponents();
         hub_menu.setBackground(new Color(10,86,18,147));
-        ingresarPlantas.setBackground(new Color(0,0,0,0));
     }
 
     /**
@@ -33,37 +32,44 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         hub_menu = new javax.swing.JPanel();
-        ingresarPlantas = new javax.swing.JButton();
+        bienvenidoNoUsar = new javax.swing.JLabel();
+        nombre_menu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximizedBounds(new java.awt.Rectangle(1024, 576, 576, 576));
         setResizable(false);
 
-        hub_menu.setBackground(new java.awt.Color(10, 86, 18));
+        hub_menu.setBackground(new java.awt.Color(0, 0, 0));
         hub_menu.setPreferredSize(new java.awt.Dimension(257, 576));
 
-        ingresarPlantas.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        ingresarPlantas.setText("Ingresar Plantas");
-        ingresarPlantas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        ingresarPlantas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ingresarPlantas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ingresarPlantasActionPerformed(evt);
-            }
-        });
+        bienvenidoNoUsar.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
+        bienvenidoNoUsar.setForeground(new java.awt.Color(255, 255, 255));
+        bienvenidoNoUsar.setText("Bienvenido");
+
+        nombre_menu.setBackground(new java.awt.Color(255, 255, 255));
+        nombre_menu.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        nombre_menu.setForeground(new java.awt.Color(10, 86, 18));
+        nombre_menu.setText("Nombre");
 
         javax.swing.GroupLayout hub_menuLayout = new javax.swing.GroupLayout(hub_menu);
         hub_menu.setLayout(hub_menuLayout);
         hub_menuLayout.setHorizontalGroup(
             hub_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ingresarPlantas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+            .addGroup(hub_menuLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(hub_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nombre_menu)
+                    .addComponent(bienvenidoNoUsar))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         hub_menuLayout.setVerticalGroup(
             hub_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(hub_menuLayout.createSequentialGroup()
-                .addGap(159, 159, 159)
-                .addComponent(ingresarPlantas, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(388, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(bienvenidoNoUsar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nombre_menu)
+                .addContainerGap(466, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -81,10 +87,6 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    // BOTONES DEL MENU
-    private void ingresarPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarPlantasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ingresarPlantasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -95,23 +97,9 @@ public class Menu extends javax.swing.JFrame {
             new Menu().setVisible(true);
         });
     }
-
-        // Clase interna con la cual agregamos un background con imagen al JFrame
-    class FondoPanel extends JPanel{
-        private Image imagen;
-        
-        @Override
-        public void paint(Graphics g){
-            imagen = new ImageIcon(getClass().getResource("/imagen/576.png")).getImage(); // Designamos la ruta
-            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this); // La posicion
-            setOpaque(false);
-            super.paint(g);
-        }
-    }
-    
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bienvenidoNoUsar;
     private javax.swing.JPanel hub_menu;
-    private javax.swing.JButton ingresarPlantas;
+    private javax.swing.JLabel nombre_menu;
     // End of variables declaration//GEN-END:variables
 }
