@@ -14,7 +14,7 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getContrasenna() {
+    public String getContrasenna() { 
         return contrasenna;
     }
 

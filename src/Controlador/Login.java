@@ -19,8 +19,7 @@ public class Login {
     public boolean buscarUsuario(String nombre, String pass){
         String query;
         ArrayList<Usuario> users = new ArrayList<>();
-        try
-        {
+        try {
             Conexion coneX=new Conexion();
             Connection cnx=coneX.connection();
             query="SELECT nombre, contrasenna FROM USUARIO";

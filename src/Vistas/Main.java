@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import java.awt.*;
 import javax.swing.*;
 import Controlador.Login;
-
+import Modelo.Usuario;
 /**
  *
  * @author Vicente
@@ -18,6 +18,7 @@ public class Main extends javax.swing.JFrame {
     FondoPanel fondo = new FondoPanel(); // Creamos el fondo
     Validacion val = new Validacion();
     Login login = new Login();
+    Usuario user = new Usuario();
     public Main() {
         this.setContentPane(fondo);
         initComponents();
@@ -65,7 +66,6 @@ public class Main extends javax.swing.JFrame {
 
         userText.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         userText.setForeground(new java.awt.Color(51, 51, 51));
-        userText.setText("Usuario1");
         userText.setBorder(null);
         userText.setMargin(new java.awt.Insets(10, 10, 10, 10));
         userText.addActionListener(new java.awt.event.ActionListener() {
@@ -151,23 +151,24 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void userTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTextActionPerformed
-     //s   
+        System.out.println(evt.getID());
     }//GEN-LAST:event_userTextActionPerformed
 
     private void passwordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextActionPerformed
-       //s
+        System.out.println(evt.getID());
     }//GEN-LAST:event_passwordTextActionPerformed
     
-    String nombre = "";
-    String pass = "";
     private void ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarActionPerformed
+        String nombre = "";
+        String pass = "";
         nombre = this.userText.getText();
         pass = this.passwordText.getText();
-        if (val.validName(nombre) && login.buscarUsuario(nombre,pass)){
+        if (val.validName(nombre.toLowerCase()) && login.buscarUsuario(nombre,pass)){
+            Menu openMenu = new Menu(); // Abre menu
             this.alertPanel.setVisible(true);
             this.alertPanel.setBackground(new Color(2,126,22));
             this.alertText.setText("Entrando como " + this.userText.getText());
-            Menu openMenu = new Menu(); // Abre menu
+            openMenu.nombre_menu.setText(toCapitalize(nombre));
             openMenu.setVisible(true);
             this.setVisible(false);
         } else {
@@ -205,7 +206,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton ingresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPasswordField passwordText;
-    private javax.swing.JTextField userText;
+    protected javax.swing.JTextField userText;
     private javax.swing.JLabel welcome_noUse;
     private javax.swing.JLabel welcome_noUse1;
     // End of variables declaration//GEN-END:variables
@@ -224,6 +225,7 @@ public class Main extends javax.swing.JFrame {
         }
     }
     
+    
     public void setColor(JButton btn){
         btn.setBackground(new Color(10,0,0)); // Hover color BLACK
     }
@@ -231,6 +233,14 @@ public class Main extends javax.swing.JFrame {
     public void resetColor(JButton btn){
         btn.setBackground(new Color(10,86,18)); // Hover color GREEN
     }
+    
+    
+    private String toCapitalize(String texto){
+        String first = texto.substring(0, 1).toUpperCase();
+        return first + texto.substring(1);
+        
+    }
+    
 }
 
 

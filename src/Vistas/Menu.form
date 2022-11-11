@@ -70,7 +70,7 @@
                   <Component id="bienvenidoNoUsar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="nombre_menu" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="466" max="32767" attributes="0"/>
+                  <EmptySpace pref="459" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -93,13 +93,16 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Gadugi" size="18" style="1"/>
+              <Font name="Gadugi" size="24" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="12" green="56" red="a" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Nombre"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
