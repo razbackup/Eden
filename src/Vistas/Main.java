@@ -21,11 +21,7 @@ public class Main extends javax.swing.JFrame {
     Validacion val = new Validacion();
     Conexion connect = new Conexion();
     public Main() {
-        try {
-            System.out.println(connect.connection());
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        System.out.println(connect.connection());
         this.setContentPane(fondo); // Agrega la imagen
         initComponents();
         alertPanel.setVisible(false);
