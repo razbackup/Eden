@@ -5,14 +5,9 @@
 package Vistas;
 
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
-
 /**
  *
- * @author anon
+ * @author Vicente
  */
 public class Menu extends Main {
     FondoPanel fondo = new FondoPanel();

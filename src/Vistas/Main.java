@@ -8,9 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import java.awt.*;
 import javax.swing.*;
-import BD.Conexion;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import Controlador.Login;
 
 /**
  *
@@ -19,10 +17,9 @@ import java.util.logging.Logger;
 public class Main extends javax.swing.JFrame {
     FondoPanel fondo = new FondoPanel(); // Creamos el fondo
     Validacion val = new Validacion();
-    Conexion connect = new Conexion();
+    Login login = new Login();
     public Main() {
-        System.out.println(connect.connection());
-        this.setContentPane(fondo); // Agrega la imagen
+        this.setContentPane(fondo);
         initComponents();
         alertPanel.setVisible(false);
         alertText.setBorder(BorderFactory.createCompoundBorder(this.alertText.getBorder(), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
@@ -161,12 +158,12 @@ public class Main extends javax.swing.JFrame {
        //s
     }//GEN-LAST:event_passwordTextActionPerformed
     
-    boolean one = false;
     String nombre = "";
+    String pass = "";
     private void ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarActionPerformed
         nombre = this.userText.getText();
-        System.out.println(this.userText.getText());
-        if (val.validName(nombre)){
+        pass = this.passwordText.getText();
+        if (val.validName(nombre) && login.buscarUsuario(nombre,pass)){
             this.alertPanel.setVisible(true);
             this.alertPanel.setBackground(new Color(2,126,22));
             this.alertText.setText("Entrando como " + this.userText.getText());
