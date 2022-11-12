@@ -114,7 +114,7 @@ public class Main extends javax.swing.JFrame {
         ingresar.setForeground(new java.awt.Color(255, 255, 255));
         ingresar.setText("Ingresar");
         ingresar.setBorder(null);
-        ingresar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ingresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ingresar.setMaximumSize(new java.awt.Dimension(74, 31));
         ingresar.setMinimumSize(new java.awt.Dimension(74, 31));
         ingresar.setPreferredSize(new java.awt.Dimension(74, 31));
@@ -161,7 +161,7 @@ public class Main extends javax.swing.JFrame {
     private void ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarActionPerformed
         String nombre = "";
         String pass = "";
-        nombre = this.userText.getText();
+        nombre = this.userText.getText().toLowerCase();
         pass = this.passwordText.getText();
         if (val.validName(nombre.toLowerCase()) && login.buscarUsuario(nombre,pass)){
             Menu openMenu = new Menu(); // Abre menu
@@ -227,7 +227,7 @@ public class Main extends javax.swing.JFrame {
     
     
     public void setColor(JButton btn){
-        btn.setBackground(new Color(10,0,0)); // Hover color BLACK
+        btn.setBackground(new Color(10,0,0,100)); // Hover color BLACK
     }
     
     public void resetColor(JButton btn){
