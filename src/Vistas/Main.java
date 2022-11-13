@@ -58,6 +58,7 @@ public class Main extends javax.swing.JFrame {
         setIconImages(null);
         setLocationByPlatform(true);
         setMaximizedBounds(new java.awt.Rectangle(1024, 576, 576, 576));
+        setMaximumSize(new java.awt.Dimension(1024, 576));
         setMinimumSize(new java.awt.Dimension(1024, 576));
         setPreferredSize(new java.awt.Dimension(1024, 576));
         setResizable(false);
@@ -167,7 +168,8 @@ public class Main extends javax.swing.JFrame {
             Menu openMenu = new Menu(); // Abre menu
             this.alertPanel.setVisible(true);
             this.alertPanel.setBackground(new Color(2,126,22));
-            this.alertText.setText("Entrando como " + this.userText.getText());
+            this.alertText.setText("Entrando como " + toCapitalize(this.userText.getText()));
+            // Tiempo de espera
             openMenu.nombre_menu.setText(toCapitalize(nombre));
             openMenu.setVisible(true);
             this.setVisible(false);
@@ -240,7 +242,4 @@ public class Main extends javax.swing.JFrame {
         return first + texto.substring(1);
         
     }
-    
 }
-
-

@@ -31,10 +31,16 @@ public class Menu extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
         setMaximizedBounds(new java.awt.Rectangle(1024, 576, 576, 576));
+        setMaximumSize(new java.awt.Dimension(1024, 576));
+        setMinimumSize(new java.awt.Dimension(1024, 576));
+        setPreferredSize(new java.awt.Dimension(1024, 576));
         setResizable(false);
+        setType(java.awt.Window.Type.POPUP);
 
         hub_menu.setBackground(new java.awt.Color(0, 0, 0));
         hub_menu.setPreferredSize(new java.awt.Dimension(257, 576));
@@ -46,9 +52,10 @@ public class Menu extends javax.swing.JFrame {
         nombre_menu.setBackground(new java.awt.Color(255, 255, 255));
         nombre_menu.setFont(new java.awt.Font("Gadugi", 1, 24)); // NOI18N
         nombre_menu.setForeground(new java.awt.Color(10, 86, 18));
+        nombre_menu.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nombre_menu.setText("Nombre");
 
-        logOut_btn.setBackground(new java.awt.Color(0, 0, 0));
+        logOut_btn.setBackground(new java.awt.Color(255, 255, 255));
         logOut_btn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         logOut_btn.setForeground(new java.awt.Color(255, 255, 255));
         logOut_btn.setText("Log Out");
@@ -86,6 +93,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel4.setText("Borrar planta");
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icon.png"))); // NOI18N
+
         javax.swing.GroupLayout hub_menuLayout = new javax.swing.GroupLayout(hub_menu);
         hub_menu.setLayout(hub_menuLayout);
         hub_menuLayout.setHorizontalGroup(
@@ -95,9 +104,12 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(hub_menuLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(hub_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nombre_menu)
-                            .addComponent(bienvenidoNoUsar))
-                        .addGap(0, 67, Short.MAX_VALUE))
+                            .addComponent(bienvenidoNoUsar)
+                            .addGroup(hub_menuLayout.createSequentialGroup()
+                                .addComponent(nombre_menu)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel5)))
+                        .addGap(0, 61, Short.MAX_VALUE))
                     .addGroup(hub_menuLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(logOut_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -120,8 +132,12 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(hub_menuLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(bienvenidoNoUsar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nombre_menu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(hub_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addGroup(hub_menuLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(nombre_menu)))
                 .addGap(54, 54, 54)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -130,7 +146,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 241, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
                 .addComponent(logOut_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
@@ -141,7 +157,7 @@ public class Menu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(hub_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 767, Short.MAX_VALUE))
+                .addGap(0, 764, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,6 +200,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel logOut_btn;
     protected javax.swing.JLabel nombre_menu;
     // End of variables declaration//GEN-END:variables
