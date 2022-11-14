@@ -65,12 +65,6 @@ public class Menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logOut_btnMouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                logOut_btnMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                logOut_btnMouseExited(evt);
-            }
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -93,7 +87,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel4.setText("Borrar planta");
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icon.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icon_menu.png"))); // NOI18N
 
         javax.swing.GroupLayout hub_menuLayout = new javax.swing.GroupLayout(hub_menu);
         hub_menu.setLayout(hub_menuLayout);
@@ -107,9 +101,9 @@ public class Menu extends javax.swing.JFrame {
                             .addComponent(bienvenidoNoUsar)
                             .addGroup(hub_menuLayout.createSequentialGroup()
                                 .addComponent(nombre_menu)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel5)))
-                        .addGap(0, 61, Short.MAX_VALUE))
+                        .addGap(0, 67, Short.MAX_VALUE))
                     .addGroup(hub_menuLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(logOut_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -132,13 +126,11 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(hub_menuLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(bienvenidoNoUsar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(hub_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addGroup(hub_menuLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(nombre_menu)))
-                .addGap(54, 54, 54)
+                    .addComponent(nombre_menu)
+                    .addComponent(jLabel5))
+                .addGap(72, 72, 72)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
@@ -146,7 +138,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
                 .addComponent(logOut_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
@@ -172,14 +164,6 @@ public class Menu extends javax.swing.JFrame {
         main.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_logOut_btnMouseClicked
-
-    private void logOut_btnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOut_btnMouseEntered
-        this.logOut_btn.setForeground(new Color(0,0,0));
-    }//GEN-LAST:event_logOut_btnMouseEntered
-
-    private void logOut_btnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOut_btnMouseExited
-        this.logOut_btn.setForeground(new Color(255,255,255));
-    }//GEN-LAST:event_logOut_btnMouseExited
   
     class FondoPanel extends JPanel{
         private Image imagen;

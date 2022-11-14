@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2022 a las 21:15:49
+-- Tiempo de generación: 14-11-2022 a las 01:36:26
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `eden`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `planta`
+--
+
+CREATE TABLE `planta` (
+  `id_planta` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `descripcion` varchar(1000) NOT NULL,
+  `clasificacion` char(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tipo`
+--
+
+CREATE TABLE `tipo` (
+  `clasificacion` char(1) NOT NULL,
+  `nombre_clasi` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -46,6 +70,19 @@ INSERT INTO `usuario` (`id_usuario`, `nombre`, `contrasenna`) VALUES
 --
 
 --
+-- Indices de la tabla `planta`
+--
+ALTER TABLE `planta`
+  ADD PRIMARY KEY (`id_planta`),
+  ADD KEY `clasificacion` (`clasificacion`);
+
+--
+-- Indices de la tabla `tipo`
+--
+ALTER TABLE `tipo`
+  ADD PRIMARY KEY (`clasificacion`);
+
+--
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -56,10 +93,26 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `planta`
+--
+ALTER TABLE `planta`
+  MODIFY `id_planta` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `planta`
+--
+ALTER TABLE `planta`
+  ADD CONSTRAINT `planta_ibfk_1` FOREIGN KEY (`clasificacion`) REFERENCES `tipo` (`clasificacion`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

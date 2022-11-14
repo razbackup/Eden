@@ -168,9 +168,9 @@ public class Main extends javax.swing.JFrame {
             Menu openMenu = new Menu(); // Abre menu
             this.alertPanel.setVisible(true);
             this.alertPanel.setBackground(new Color(2,126,22));
-            this.alertText.setText("Entrando como " + toCapitalize(this.userText.getText()));
+            this.alertText.setText("Entrando como " + toCapitalize(this.userText.getText()) + ".");
             // Tiempo de espera
-            openMenu.nombre_menu.setText(toCapitalize(nombre));
+            openMenu.nombre_menu.setText(toCapitalize(nombre) + ".");
             openMenu.setVisible(true);
             this.setVisible(false);
         } else {
