@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import java.awt.*;
 import javax.swing.*;
-import Controlador.Login;
+import Controlador.Controler;
 import Modelo.Usuario;
 /**
  *
@@ -17,7 +17,7 @@ import Modelo.Usuario;
 public class Main extends javax.swing.JFrame {
     FondoPanel fondo = new FondoPanel(); // Creamos el fondo
     Validacion val = new Validacion();
-    Login login = new Login();
+    Controler login = new Controler();
     public Main() {
         this.setContentPane(fondo);
         initComponents();
@@ -153,17 +153,14 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordTextActionPerformed
     
     private void ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarActionPerformed
-        String nombre = "";
-        String pass = "";
-        nombre = this.userText.getText().toLowerCase();
-        pass = this.passwordText.getText();
-        if (val.validName(nombre.toLowerCase()) && login.buscarUsuario(nombre,pass)){
+        Usuario user = new Usuario(this.userText.getText().toLowerCase(),this.passwordText.getText());
+        if (val.validName(user.getNombre().toLowerCase()) && login.login(user)){
             Menu openMenu = new Menu(); // Abre menu
             this.alertPanel.setVisible(true);
             this.alertPanel.setBackground(new Color(2,126,22));
             this.alertText.setText("Entrando como " + toCapitalize(this.userText.getText()) + ".");
             // Tiempo de espera
-            openMenu.nombre_menu.setText(toCapitalize(nombre) + ".");
+            openMenu.nombre_menu.setText(toCapitalize(user.getNombre()) + ".");
             openMenu.setVisible(true);
             this.setVisible(false);
         } else {

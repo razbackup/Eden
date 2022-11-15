@@ -8,19 +8,28 @@ public class Planta {
     protected int id_producto;
     protected String nombre,descripcion;
     protected char clasificacion;
-    protected int precio;
+    protected int precio,stock;
 
     public Planta() {
     }
 
-    public Planta(int id_producto, String nombre, String descripcion, char clasificacion, int precio) {
+    public Planta(int id_producto, String nombre, String descripcion, char clasificacion, int precio, int stock) {
         this.id_producto = id_producto;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.clasificacion = clasificacion;
         this.precio = precio;
+        this.stock = stock;
     }
 
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+    
     public int getId_producto() {
         return id_producto;
     }

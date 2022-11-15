@@ -13,8 +13,8 @@ public class Ingresar extends javax.swing.JFrame {
         this.setContentPane(fondo);
         initComponents();
         this.panel.setBackground(new Color(10,86,18,120));
-        this.nameText.setBorder(BorderFactory.createCompoundBorder(this.nameText.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 10)));
-        this.precioText.setBorder(BorderFactory.createCompoundBorder(this.precioText.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 10)));
+        this.nombreText.setBorder(BorderFactory.createCompoundBorder(this.nombreText.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 10)));
+        this.nombreText.setBorder(BorderFactory.createCompoundBorder(this.nombreText.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 10)));
         this.descText.setBorder(BorderFactory.createCompoundBorder(this.descText.getBorder(), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
     }
     @SuppressWarnings("unchecked")
@@ -24,17 +24,17 @@ public class Ingresar extends javax.swing.JFrame {
         panel = new javax.swing.JPanel();
         titleNotUse = new javax.swing.JLabel();
         nameNotUse = new javax.swing.JLabel();
-        precioText = new javax.swing.JTextField();
+        nombreText = new javax.swing.JTextField();
         descNotUse = new javax.swing.JLabel();
         desc_wrapper = new javax.swing.JScrollPane();
         descText = new javax.swing.JTextArea();
         clasifiacion_wrapper = new javax.swing.JScrollPane();
         clasificacion = new javax.swing.JList<>();
         clasificacionNotUse = new javax.swing.JLabel();
-        nameText = new javax.swing.JTextField();
         salir = new javax.swing.JButton();
         enviar = new javax.swing.JButton();
         precioNotUse1 = new javax.swing.JLabel();
+        precioText1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1024, 576));
@@ -55,14 +55,14 @@ public class Ingresar extends javax.swing.JFrame {
         nameNotUse.setForeground(new java.awt.Color(255, 255, 255));
         nameNotUse.setText("Nombre");
 
-        precioText.setBackground(new java.awt.Color(255, 255, 255));
-        precioText.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        precioText.setForeground(new java.awt.Color(51, 51, 51));
-        precioText.setBorder(null);
-        precioText.setMargin(new java.awt.Insets(10, 10, 10, 10));
-        precioText.addActionListener(new java.awt.event.ActionListener() {
+        nombreText.setBackground(new java.awt.Color(255, 255, 255));
+        nombreText.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        nombreText.setForeground(new java.awt.Color(51, 51, 51));
+        nombreText.setBorder(null);
+        nombreText.setMargin(new java.awt.Insets(10, 10, 10, 10));
+        nombreText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                precioTextActionPerformed(evt);
+                nombreTextActionPerformed(evt);
             }
         });
 
@@ -90,17 +90,6 @@ public class Ingresar extends javax.swing.JFrame {
         clasificacionNotUse.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         clasificacionNotUse.setForeground(new java.awt.Color(255, 255, 255));
         clasificacionNotUse.setText("Clasificacion");
-
-        nameText.setBackground(new java.awt.Color(255, 255, 255));
-        nameText.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        nameText.setForeground(new java.awt.Color(51, 51, 51));
-        nameText.setBorder(null);
-        nameText.setMargin(new java.awt.Insets(10, 10, 10, 10));
-        nameText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameTextActionPerformed(evt);
-            }
-        });
 
         salir.setBackground(new java.awt.Color(86, 9, 9));
         salir.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -136,6 +125,17 @@ public class Ingresar extends javax.swing.JFrame {
         precioNotUse1.setForeground(new java.awt.Color(255, 255, 255));
         precioNotUse1.setText("Precio");
 
+        precioText1.setBackground(new java.awt.Color(255, 255, 255));
+        precioText1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        precioText1.setForeground(new java.awt.Color(51, 51, 51));
+        precioText1.setBorder(null);
+        precioText1.setMargin(new java.awt.Insets(10, 10, 10, 10));
+        precioText1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                precioText1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
@@ -152,12 +152,10 @@ public class Ingresar extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameNotUse)
-                            .addGroup(panelLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nameText, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(precioText, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(precioText1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(precioNotUse1)
+                            .addComponent(nombreText, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nameNotUse))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(clasificacionNotUse)
@@ -173,11 +171,6 @@ public class Ingresar extends javax.swing.JFrame {
                     .addContainerGap(595, Short.MAX_VALUE)
                     .addComponent(enviar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(118, 118, 118)))
-            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelLayout.createSequentialGroup()
-                    .addGap(86, 86, 86)
-                    .addComponent(precioNotUse1)
-                    .addContainerGap(658, Short.MAX_VALUE)))
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,13 +184,17 @@ public class Ingresar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLayout.createSequentialGroup()
-                        .addComponent(nameText, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(precioText, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(clasifiacion_wrapper, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nombreText, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                        .addComponent(precioNotUse1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(precioText1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addComponent(clasifiacion_wrapper, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(descNotUse)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
                         .addComponent(desc_wrapper, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -210,11 +207,6 @@ public class Ingresar extends javax.swing.JFrame {
                     .addContainerGap(426, Short.MAX_VALUE)
                     .addComponent(enviar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(25, 25, 25)))
-            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelLayout.createSequentialGroup()
-                    .addGap(194, 194, 194)
-                    .addComponent(precioNotUse1)
-                    .addContainerGap(268, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -237,13 +229,9 @@ public class Ingresar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void precioTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioTextActionPerformed
+    private void nombreTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreTextActionPerformed
         System.out.println(evt.getID());
-    }//GEN-LAST:event_precioTextActionPerformed
-
-    private void nameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextActionPerformed
-        System.out.println(evt.getID());
-    }//GEN-LAST:event_nameTextActionPerformed
+    }//GEN-LAST:event_nombreTextActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
       
@@ -253,6 +241,9 @@ public class Ingresar extends javax.swing.JFrame {
        
     }//GEN-LAST:event_enviarActionPerformed
 
+    private void precioText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioText1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_precioText1ActionPerformed
     
     class FondoPanel extends JPanel{
         private Image imagen;
@@ -275,10 +266,10 @@ public class Ingresar extends javax.swing.JFrame {
     private javax.swing.JScrollPane desc_wrapper;
     private javax.swing.JButton enviar;
     private javax.swing.JLabel nameNotUse;
-    private javax.swing.JTextField nameText;
+    private javax.swing.JTextField nombreText;
     private javax.swing.JPanel panel;
     private javax.swing.JLabel precioNotUse1;
-    private javax.swing.JTextField precioText;
+    private javax.swing.JTextField precioText1;
     private javax.swing.JButton salir;
     private javax.swing.JLabel titleNotUse;
     // End of variables declaration//GEN-END:variables
