@@ -267,10 +267,10 @@ public class Ingresar extends javax.swing.JFrame {
                 planta.setPrecio(Integer.parseInt(this.precioText.getText()));
                 planta.setStock(Integer.parseInt(this.stock.getText()));
                 planta.setDescripcion(this.descText.getText());
-                System.out.println(this.clasificacion.getSelectedIndex());
+                
                 new Alerts("Correcto, Datos ingresados correctamente.").green(this.alertPanel, this.alertText);
             } else {
-                new Alerts("Warning, Porfavor Rellene todos los campos.").yellow(this.alertPanel, this.alertText);
+                new Alerts("Warning, Porfavor Rellene todos los campos o tienes un valor impreciso.").yellow(this.alertPanel, this.alertText);
             }
         } catch (Exception ex) {
             new Alerts("Error, Hay un campo de texto con un valor incorrecto.").red(this.alertPanel, this.alertText);
