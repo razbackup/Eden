@@ -13,7 +13,7 @@ import Modelo.Usuario;
 import Controlador.Alerts;
 /**
  *
- * @author Vicente
+ * @author Vicente.
  */
 public class Main extends javax.swing.JFrame {
     FondoPanel fondo = new FondoPanel(); // Creamos el fondo
