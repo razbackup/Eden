@@ -1,6 +1,6 @@
 /**
  *
- * @author Vicente Vasquez
+ * @author Vicente Vasquez.
  */
 package Controlador;
 import BD.Conexion;
