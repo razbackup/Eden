@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-11-2022 a las 22:16:32
+-- Tiempo de generación: 16-11-2022 a las 12:40:09
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -52,7 +52,20 @@ CREATE TABLE `tipo` (
 --
 
 INSERT INTO `tipo` (`clasificacion`, `nombre_clasi`) VALUES
-(1, 'Herbáceas');
+(0, 'Herbáceas'),
+(1, 'Matorrales'),
+(2, 'Arbustos'),
+(3, 'Árboles'),
+(4, 'Anuales'),
+(5, 'Bianuales'),
+(6, 'Perennes'),
+(7, 'criptógamas'),
+(8, 'fanerógamas '),
+(9, 'Trepadoras'),
+(10, 'Acuáticas'),
+(11, 'Suculentas'),
+(12, 'Aromáticas'),
+(13, 'Bulbosas');
 
 -- --------------------------------------------------------
 
