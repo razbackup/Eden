@@ -8,17 +8,24 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import Controlador.Controler;
 import Modelo.Planta;
+import Controlador.Alerts;
+import Controlador.Validacion;
 
 public class Ingresar extends javax.swing.JFrame {
+
     FondoPanel fondo = new FondoPanel();
+
     public Ingresar() {
         this.setContentPane(fondo);
         initComponents();
-        this.panel.setBackground(new Color(10,86,18,120));
+        alertPanel.setVisible(false);
+        this.panel.setBackground(new Color(10, 86, 18, 120));
         this.nombreText.setBorder(BorderFactory.createCompoundBorder(this.nombreText.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 10)));
-        this.nombreText.setBorder(BorderFactory.createCompoundBorder(this.nombreText.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 10)));
+        this.precioText.setBorder(BorderFactory.createCompoundBorder(this.precioText.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 10)));
         this.descText.setBorder(BorderFactory.createCompoundBorder(this.descText.getBorder(), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+        this.stock.setBorder(BorderFactory.createCompoundBorder(this.stock.getBorder(), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -39,11 +46,14 @@ public class Ingresar extends javax.swing.JFrame {
         stock = new javax.swing.JTextField();
         precioText = new javax.swing.JTextField();
         stockNotUse = new javax.swing.JLabel();
+        alertPanel = new javax.swing.JPanel();
+        alertText = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1024, 576));
         setMinimumSize(new java.awt.Dimension(1024, 576));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panel.setMaximumSize(new java.awt.Dimension(787, 482));
         panel.setMinimumSize(new java.awt.Dimension(787, 482));
@@ -64,11 +74,6 @@ public class Ingresar extends javax.swing.JFrame {
         nombreText.setForeground(new java.awt.Color(51, 51, 51));
         nombreText.setBorder(null);
         nombreText.setMargin(new java.awt.Insets(10, 10, 10, 10));
-        nombreText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreTextActionPerformed(evt);
-            }
-        });
 
         descNotUse.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         descNotUse.setForeground(new java.awt.Color(255, 255, 255));
@@ -159,38 +164,28 @@ public class Ingresar extends javax.swing.JFrame {
                     .addGroup(panelLayout.createSequentialGroup()
                         .addComponent(desc_wrapper, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(enviar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25))
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelLayout.createSequentialGroup()
                                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelLayout.createSequentialGroup()
-                                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(precioNotUse1)
-                                            .addComponent(nameNotUse)
-                                            .addComponent(descNotUse))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(panelLayout.createSequentialGroup()
-                                        .addComponent(nombreText, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(precioNotUse1)
+                                    .addComponent(nameNotUse)
+                                    .addComponent(descNotUse)
+                                    .addComponent(nombreText, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(87, 87, 87)
                                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(stock, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(stockNotUse))
-                                .addGap(41, 41, 41))
-                            .addGroup(panelLayout.createSequentialGroup()
-                                .addComponent(precioText, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(stockNotUse)))
+                            .addComponent(precioText, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(clasificacionNotUse)
                             .addComponent(clasifiacion_wrapper, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(172, Short.MAX_VALUE))))
-            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                    .addContainerGap(595, Short.MAX_VALUE)
-                    .addComponent(enviar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(118, 118, 118)))
+                        .addGap(148, 148, 148))))
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,13 +208,16 @@ public class Ingresar extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(stockNotUse)
-                                    .addComponent(clasificacionNotUse))
+                                .addComponent(stockNotUse)
                                 .addGap(3, 3, 3)))
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(stock, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(clasifiacion_wrapper, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(stock, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(63, 67, Short.MAX_VALUE))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(clasificacionNotUse)
+                        .addGap(3, 3, 3)
+                        .addComponent(clasifiacion_wrapper, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelLayout.createSequentialGroup()
@@ -228,53 +226,63 @@ public class Ingresar extends javax.swing.JFrame {
                         .addComponent(desc_wrapper, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15))
                     .addGroup(panelLayout.createSequentialGroup()
-                        .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(enviar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26))))
-            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                    .addContainerGap(426, Short.MAX_VALUE)
-                    .addComponent(enviar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(25, 25, 25)))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(106, 106, 106)
-                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(131, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
+        getContentPane().add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 56, -1, -1));
+
+        alertPanel.setBackground(new java.awt.Color(126, 2, 2));
+        alertPanel.setName(""); // NOI18N
+        alertPanel.setLayout(new java.awt.BorderLayout());
+
+        alertText.setBackground(new java.awt.Color(255, 255, 255));
+        alertText.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        alertText.setForeground(new java.awt.Color(255, 255, 255));
+        alertText.setText("Entrando como");
+        alertText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        alertPanel.add(alertText, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(alertPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nombreTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreTextActionPerformed
-        System.out.println(evt.getID());
-    }//GEN-LAST:event_nombreTextActionPerformed
-
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-      this.setVisible(false);
+        this.setVisible(false);
     }//GEN-LAST:event_salirActionPerformed
-
+    // Terminar de extraer los datos de los campos para enviar la soli
     private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
-       this.nombreText.getText(); // Terminar de extraer los datos de los campos para enviar la soli
-       
+        Planta planta = new Planta();
+        Validacion valid = new Validacion();
+        try {
+            if (this.clasificacion.getSelectedIndex() >= 0 && valid.validNamePlanta(this.nombreText.getText())
+                    && valid.validPrecio(Integer.parseInt(this.precioText.getText())) 
+                    && valid.validStock(Integer.parseInt(this.stock.getText()))
+                    && valid.validDesc(this.descText.getText())
+                    ) {
+                planta.setNombre(this.nombreText.getText());
+                planta.setPrecio(Integer.parseInt(this.precioText.getText()));
+                planta.setStock(Integer.parseInt(this.stock.getText()));
+                planta.setDescripcion(this.descText.getText());
+                System.out.println(this.clasificacion.getSelectedIndex());
+                new Alerts("Correcto, Datos ingresados correctamente.").green(this.alertPanel, this.alertText);
+            } else {
+                new Alerts("Warning, Porfavor Rellene todos los campos.").yellow(this.alertPanel, this.alertText);
+            }
+        } catch (Exception ex) {
+            new Alerts("Error, Hay un campo de texto con un valor incorrecto.").red(this.alertPanel, this.alertText);
+        }
     }//GEN-LAST:event_enviarActionPerformed
-    
-    class FondoPanel extends JPanel{
+
+    class FondoPanel extends JPanel {
+
         private Image imagen;
-        
+
         @Override
-        public void paint(Graphics g){
+        public void paint(Graphics g) {
             imagen = new ImageIcon(getClass().getResource("/imagen/576.png")).getImage(); // Designamos la ruta
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this); // La posicion
             setOpaque(false);
@@ -283,6 +291,8 @@ public class Ingresar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel alertPanel;
+    private javax.swing.JLabel alertText;
     private javax.swing.JScrollPane clasifiacion_wrapper;
     private javax.swing.JList<String> clasificacion;
     private javax.swing.JLabel clasificacionNotUse;

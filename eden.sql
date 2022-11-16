@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-11-2022 a las 01:36:26
+-- Tiempo de generación: 15-11-2022 a las 22:16:32
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -28,10 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `planta` (
-  `id_planta` int(11) NOT NULL,
+  `id_planta` int(255) NOT NULL,
   `nombre` varchar(50) NOT NULL,
+  `stock` int(255) NOT NULL,
+  `precio` int(255) NOT NULL,
   `descripcion` varchar(1000) NOT NULL,
-  `clasificacion` char(1) NOT NULL
+  `clasificacion` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -41,9 +43,16 @@ CREATE TABLE `planta` (
 --
 
 CREATE TABLE `tipo` (
-  `clasificacion` char(1) NOT NULL,
+  `clasificacion` int(255) NOT NULL,
   `nombre_clasi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tipo`
+--
+
+INSERT INTO `tipo` (`clasificacion`, `nombre_clasi`) VALUES
+(1, 'Herbáceas');
 
 -- --------------------------------------------------------
 
@@ -96,7 +105,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `planta`
 --
 ALTER TABLE `planta`
-  MODIFY `id_planta` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_planta` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`

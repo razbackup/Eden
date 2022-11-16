@@ -10,6 +10,7 @@ import java.awt.*;
 import javax.swing.*;
 import Controlador.Controler;
 import Modelo.Usuario;
+import Controlador.Alerts;
 /**
  *
  * @author Vicente
@@ -154,20 +155,19 @@ public class Main extends javax.swing.JFrame {
     
     private void ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarActionPerformed
         Usuario user = new Usuario(this.userText.getText().toLowerCase(),this.passwordText.getText());
-        if (val.validName(user.getNombre().toLowerCase()) && login.login(user)){
-            Menu openMenu = new Menu(); // Abre menu
-            this.alertPanel.setVisible(true);
-            this.alertPanel.setBackground(new Color(2,126,22));
-            this.alertText.setText("Entrando como " + toCapitalize(this.userText.getText()) + ".");
-            // Tiempo de espera
-            openMenu.nombre_menu.setText(toCapitalize(user.getNombre()) + ".");
-            openMenu.setVisible(true);
-            this.setVisible(false);
+        if (val.validName(user.getNombre().toLowerCase())){
+            System.out.println(true);
+            if (login.login(user)){
+                // IDEA DE TEMPORAZIDOR
+                Menu openMenu = new Menu(); // Abre menu
+                openMenu.nombre_menu.setText(toCapitalize(user.getNombre()) + ".");
+                openMenu.setVisible(true);
+                this.setVisible(false);
+            }
+            new Alerts("Error, Puede que usuario no exista").red(this.alertPanel,this.alertText);
         } else {
             System.out.println(false);
-            this.alertPanel.setVisible(true);
-            this.alertPanel.setBackground(new Color(126,2,2));
-            this.alertText.setText("Usuario no existente\n, nombre invalido");
+            new Alerts("Warning, Puede que haya un campo en blanco").yellow(this.alertPanel,this.alertText);
         }
     }//GEN-LAST:event_ingresarActionPerformed
 

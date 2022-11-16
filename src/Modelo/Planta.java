@@ -5,10 +5,10 @@ package Modelo;
  * @author Vicente
  */
 public class Planta {
-    protected int id_producto;
-    protected String nombre,descripcion;
-    protected char clasificacion;
-    protected int precio,stock;
+    private int id_producto;
+    private String nombre,descripcion;
+    private char clasificacion;
+    private int precio,stock;
 
     public Planta() {
     }
