@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Vicente, Jeremy
+ * @author Vicente, Jeremy.
  */
 public class Alerts extends JPanel{
    String msg;
