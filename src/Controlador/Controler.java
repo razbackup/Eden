@@ -61,10 +61,11 @@ public class Controler {
             stmt.setInt(5, planta.getClasificacion());
             //ahora que tengo lista la QUERY con sus respectivos parámetros...
             stmt.executeUpdate();//Inserto en la Base de Datos
+            return true;
             //cerrar TODO
         }catch(SQLException e){
-            System.out.println("Error SQL al listar el usuario: "+e.getMessage());
-        }catch(Exception ex){
+            System.out.println("Error SQL: "+e.getMessage());
+        }catch(Exception ex){ 
             System.out.println("Error al encontrar usuario:  "+ex.getMessage());
         }  
         return false;

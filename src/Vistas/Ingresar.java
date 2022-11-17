@@ -10,6 +10,7 @@ import Controlador.Controler;
 import Modelo.Planta;
 import Controlador.Alerts;
 import Controlador.Validacion;
+import Controlador.Controler;
 
 public class Ingresar extends javax.swing.JFrame {
 
@@ -257,18 +258,22 @@ public class Ingresar extends javax.swing.JFrame {
     private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
         Planta planta = new Planta();
         Validacion valid = new Validacion();
+        Controler ingresar = new Controler();
         try {
             if (this.clasificacion.getSelectedIndex() >= 0 && valid.validNamePlanta(this.nombreText.getText())
-                    && valid.validPrecio(Integer.parseInt(this.precioText.getText())) 
+                    && valid.validPrecio(Integer.parseInt(this.precioText.getText()))
                     && valid.validStock(Integer.parseInt(this.stock.getText()))
-                    && valid.validDesc(this.descText.getText())
-                    ) {
+                    && valid.validDesc(this.descText.getText())) {
                 planta.setNombre(this.nombreText.getText());
                 planta.setPrecio(Integer.parseInt(this.precioText.getText()));
                 planta.setStock(Integer.parseInt(this.stock.getText()));
                 planta.setDescripcion(this.descText.getText());
-                
-                new Alerts("Correcto, Datos ingresados correctamente.").green(this.alertPanel, this.alertText);
+                planta.setClasificacion((char) Integer.parseInt(String.valueOf(this.clasificacion.getSelectedIndex())));
+                if (ingresar.ingresarPlantas(planta)){
+                    new Alerts("Correcto, Datos ingresados correctamente.").green(this.alertPanel, this.alertText);
+                } else {
+                    new Alerts("Error, Datos no congruentes.").red(this.alertPanel, this.alertText);
+                }
             } else {
                 new Alerts("Warning, Porfavor Rellene todos los campos o tienes un valor impreciso.").yellow(this.alertPanel, this.alertText);
             }
