@@ -182,11 +182,11 @@ public class Ingresar extends javax.swing.JFrame {
                                     .addComponent(stock, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(stockNotUse)))
                             .addComponent(precioText, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(clasificacionNotUse)
                             .addComponent(clasifiacion_wrapper, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(148, 148, 148))))
+                        .addGap(137, 137, 137))))
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,7 +217,7 @@ public class Ingresar extends javax.swing.JFrame {
                         .addGap(59, 59, 59)
                         .addComponent(clasificacionNotUse)
                         .addGap(3, 3, 3)
-                        .addComponent(clasifiacion_wrapper, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(clasifiacion_wrapper, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -268,7 +268,7 @@ public class Ingresar extends javax.swing.JFrame {
                 planta.setPrecio(Integer.parseInt(this.precioText.getText()));
                 planta.setStock(Integer.parseInt(this.stock.getText()));
                 planta.setDescripcion(this.descText.getText());
-                planta.setClasificacion((char) Integer.parseInt(String.valueOf(this.clasificacion.getSelectedIndex())));
+                planta.setClasificacion(this.clasificacion.getSelectedIndex());
                 if (ingresar.ingresarPlantas(planta)){
                     new Alerts("Correcto, Datos ingresados correctamente.").green(this.alertPanel, this.alertText);
                 } else {

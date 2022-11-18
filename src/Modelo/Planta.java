@@ -7,8 +7,9 @@ package Modelo;
 public class Planta {
     private int id_producto;
     private String nombre,descripcion;
-    private char clasificacion;
+    private int clasificacion;
     private int precio,stock;
+    private String nombre_clasi;
 
     public Planta() {
     }
@@ -54,11 +55,11 @@ public class Planta {
         this.descripcion = descripcion;
     }
 
-    public char getClasificacion() {
+    public int getClasificacion() {
         return clasificacion;
     }
 
-    public void setClasificacion(char clasificacion) {
+    public void setClasificacion(int clasificacion) {
         this.clasificacion = clasificacion;
     }
 
@@ -68,6 +69,14 @@ public class Planta {
 
     public void setPrecio(int precio) {
         this.precio = precio;
+    }
+
+    public String getNombre_clasi() {
+        return nombre_clasi;
+    }
+
+    public void setNombre_clasi(String nombre_clasi) {
+        this.nombre_clasi = nombre_clasi;
     }
     
     

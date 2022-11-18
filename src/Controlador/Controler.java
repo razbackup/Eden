@@ -71,6 +71,37 @@ public class Controler {
         return false;
     }
     
+     public ArrayList<Planta> listarTodos(){
+        String query;
+        ArrayList<Planta> plantas = new ArrayList<>();
+        try {
+            Conexion coneX=new Conexion();
+            Connection cnx=coneX.connection();
+            query="SELECT id_planta ,nombre, stock, precio, descripcion, TIPO.nombre_clasi FROM PLANTA join TIPO on PLANTA.clasificacion = TIPO.clasificacion";
+            PreparedStatement stmt=cnx.prepareStatement(query);
+            //defino el elemento dónde recibiré el resultado del SELECT
+            ResultSet rs=stmt.executeQuery();
+            while (rs.next()){
+                Planta planta = new Planta();
+                planta.setId_producto(rs.getInt("id_planta"));
+                planta.setNombre(rs.getString("nombre"));
+                planta.setPrecio(rs.getInt("precio"));
+                planta.setStock(rs.getInt("precio"));
+                planta.setDescripcion(rs.getString("descripcion"));
+                planta.setNombre_clasi(rs.getString("TIPO.nombre_clasi"));
+                plantas.add(planta);
+            }
+            rs.close();
+            stmt.close();
+            cnx.close();
+        }catch(SQLException e){
+            System.out.println("Error SQL al listar el usuario: "+e.getMessage());
+        }catch(Exception ex){
+            System.out.println("Error al encontrar usuario:  "+ex.getMessage());
+        }  
+        
+        return plantas;
+    }
     
     
 }
