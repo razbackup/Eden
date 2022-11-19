@@ -1,6 +1,6 @@
 // background no tocar,es solo el back de label no cumple ninguna funcion mas
-
 package Vistas;
+
 import Controlador.Validacion;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -11,14 +11,18 @@ import javax.swing.*;
 import Controlador.Controler;
 import Modelo.Usuario;
 import Controlador.Alerts;
+
 /**
  *
  * @author Vicente.
  */
 public class Main extends javax.swing.JFrame {
+
     FondoPanel fondo = new FondoPanel(); // Creamos el fondo
     Validacion val = new Validacion();
     Controler login = new Controler();
+    int cont = 0;
+    int contDown = 5;
     public Main() {
         this.setContentPane(fondo);
         initComponents();
@@ -26,9 +30,10 @@ public class Main extends javax.swing.JFrame {
         alertText.setBorder(BorderFactory.createCompoundBorder(this.alertText.getBorder(), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
         userText.setBorder(BorderFactory.createCompoundBorder(this.userText.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 10)));
         passwordText.setBorder(BorderFactory.createCompoundBorder(this.userText.getBorder(), BorderFactory.createEmptyBorder(0, 5, 0, 5)));
-        Image icon = new ImageIcon(this.getClass().getResource("/imagen/icon.png")).getImage(); 
+        Image icon = new ImageIcon(this.getClass().getResource("/imagen/icon.png")).getImage();
         this.icon.setIcon(new ImageIcon(icon));
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -63,22 +68,12 @@ public class Main extends javax.swing.JFrame {
         userText.setForeground(new java.awt.Color(51, 51, 51));
         userText.setBorder(null);
         userText.setMargin(new java.awt.Insets(10, 10, 10, 10));
-        userText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userTextActionPerformed(evt);
-            }
-        });
         getContentPane().add(userText, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 258, 204, 36));
 
         passwordText.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         passwordText.setAutoscrolls(false);
         passwordText.setBorder(null);
         passwordText.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        passwordText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordTextActionPerformed(evt);
-            }
-        });
         getContentPane().add(passwordText, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 334, 204, 36));
 
         headName_noUse.setBackground(new java.awt.Color(255, 255, 255));
@@ -113,14 +108,6 @@ public class Main extends javax.swing.JFrame {
         ingresar.setMaximumSize(new java.awt.Dimension(74, 31));
         ingresar.setMinimumSize(new java.awt.Dimension(74, 31));
         ingresar.setPreferredSize(new java.awt.Dimension(74, 31));
-        ingresar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ingresarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                ingresarMouseExited(evt);
-            }
-        });
         ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ingresarActionPerformed(evt);
@@ -145,40 +132,24 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void userTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTextActionPerformed
-        System.out.println(evt.getID());
-    }//GEN-LAST:event_userTextActionPerformed
-
-    private void passwordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextActionPerformed
-        System.out.println(evt.getID());
-    }//GEN-LAST:event_passwordTextActionPerformed
     
     private void ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarActionPerformed
-        Usuario user = new Usuario(this.userText.getText().toLowerCase(),this.passwordText.getText());
-        if (val.validName(user.getNombre().toLowerCase())){
+        Usuario user = new Usuario(this.userText.getText().toLowerCase(), this.passwordText.getText());
+        if (val.validName(user.getNombre().toLowerCase())) {
             System.out.println(true);
-            if (login.login(user)){
-                // IDEA DE TEMPORAZIDOR
+            if (login.login(user)) {
                 Menu openMenu = new Menu(); // Abre menu
                 openMenu.nombre_menu.setText(toCapitalize(user.getNombre()) + ".");
                 openMenu.setVisible(true);
                 this.setVisible(false);
             }
-            new Alerts("Error, Puede que usuario no exista").red(this.alertPanel,this.alertText);
+            new Alerts("Error, Puede que usuario no exista").red(this.alertPanel, this.alertText);
         } else {
             System.out.println(false);
-            new Alerts("Warning, Puede que haya un campo en blanco").yellow(this.alertPanel,this.alertText);
+            new Alerts("Warning, Puede que haya un campo en blanco").yellow(this.alertPanel, this.alertText);
         }
     }//GEN-LAST:event_ingresarActionPerformed
 
-    private void ingresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarMouseEntered
-        setColor(this.ingresar);
-    }//GEN-LAST:event_ingresarMouseEntered
-
-    private void ingresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarMouseExited
-        resetColor(this.ingresar);
-    }//GEN-LAST:event_ingresarMouseExited
-    
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -186,8 +157,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel alertPanel;
@@ -202,34 +172,32 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel welcome_noUse;
     private javax.swing.JLabel welcome_noUse1;
     // End of variables declaration//GEN-END:variables
-    
-   
+
     // Clase interna con la cual agregamos un background con imagen al JFrame
-    class FondoPanel extends JPanel{
+    class FondoPanel extends JPanel {
+
         private Image imagen;
-        
+
         @Override
-        public void paint(Graphics g){
+        public void paint(Graphics g) {
             imagen = new ImageIcon(getClass().getResource("/imagen/576.png")).getImage(); // Designamos la ruta
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this); // La posicion
             setOpaque(false);
             super.paint(g);
         }
     }
-    
-    
-    public void setColor(JButton btn){
-        btn.setBackground(new Color(10,0,0,100)); // Hover color BLACK
+
+    public void setColor(JButton btn) {
+        btn.setBackground(new Color(10, 0, 0, 100)); // Hover color BLACK
     }
-    
-    public void resetColor(JButton btn){
-        btn.setBackground(new Color(10,86,18)); // Hover color GREEN
+
+    public void resetColor(JButton btn) {
+        btn.setBackground(new Color(10, 86, 18)); // Hover color GREEN
     }
-    
-    
-    private String toCapitalize(String texto){
+
+    private String toCapitalize(String texto) {
         String first = texto.substring(0, 1).toUpperCase();
         return first + texto.substring(1);
-        
+
     }
 }

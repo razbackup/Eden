@@ -168,19 +168,22 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    Main main = new Main();
+    Ingresar ing = new Ingresar();
+    Listar lis = new Listar();
     private void logOut_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOut_btnMouseClicked
-        Main main = new Main();
         main.setVisible(true);
         this.setVisible(false);
+        ing.setVisible(false);
+        lis.setVisible(false);
     }//GEN-LAST:event_logOut_btnMouseClicked
 
     private void ingresarPlantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarPlantaMouseClicked
-        new Ingresar().setVisible(true);
+        ing.setVisible(true);
     }//GEN-LAST:event_ingresarPlantaMouseClicked
 
     private void btnListarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnListarMouseClicked
-        new Listar().setVisible(true);
+        lis.setVisible(true);
     }//GEN-LAST:event_btnListarMouseClicked
     
     class FondoPanel extends JPanel{

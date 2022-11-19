@@ -255,12 +255,21 @@
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                  <StringArray count="5">
+                  <StringArray count="14">
                     <StringItem index="0" value="Herb&#xe1;ceas"/>
                     <StringItem index="1" value="Matorrales"/>
                     <StringItem index="2" value="Arbustos"/>
                     <StringItem index="3" value="&#xc1;rboles"/>
                     <StringItem index="4" value="Anuales"/>
+                    <StringItem index="5" value="Bianuales"/>
+                    <StringItem index="6" value="Perennes"/>
+                    <StringItem index="7" value="Cript&#xf3;gamas"/>
+                    <StringItem index="8" value="Faner&#xf3;gamas"/>
+                    <StringItem index="9" value="Trepadoras"/>
+                    <StringItem index="10" value="Acu&#xe1;ticas"/>
+                    <StringItem index="11" value="Suculentas"/>
+                    <StringItem index="12" value="Arom&#xe1;ticas"/>
+                    <StringItem index="13" value="Bulbosas"/>
                   </StringArray>
                 </Property>
               </Properties>

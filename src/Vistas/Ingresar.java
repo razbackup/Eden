@@ -91,7 +91,7 @@ public class Ingresar extends javax.swing.JFrame {
         clasificacion.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         clasificacion.setForeground(new java.awt.Color(0, 0, 0));
         clasificacion.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Herbáceas", "Matorrales", "Arbustos", "Árboles", "Anuales" };
+            String[] strings = { "Herbáceas", "Matorrales", "Arbustos", "Árboles", "Anuales", "Bianuales", "Perennes", "Criptógamas", "Fanerógamas", "Trepadoras", "Acuáticas", "Suculentas", "Aromáticas", "Bulbosas" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
