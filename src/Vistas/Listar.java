@@ -34,7 +34,7 @@ public class Listar extends javax.swing.JFrame {
         titleNotUse = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         textFiltro = new javax.swing.JTextField();
-        btnActualizar1 = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         alertPanel = new javax.swing.JPanel();
         alertText = new javax.swing.JLabel();
 
@@ -105,14 +105,14 @@ public class Listar extends javax.swing.JFrame {
         textFiltro.setBackground(new java.awt.Color(255, 255, 255));
         textFiltro.setForeground(new java.awt.Color(0, 0, 0));
 
-        btnActualizar1.setBackground(new java.awt.Color(86, 0, 0));
-        btnActualizar1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        btnActualizar1.setForeground(new java.awt.Color(255, 255, 255));
-        btnActualizar1.setText("Salir");
-        btnActualizar1.setBorder(null);
-        btnActualizar1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSalir.setBackground(new java.awt.Color(86, 0, 0));
+        btnSalir.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("Salir");
+        btnSalir.setBorder(null);
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnActualizar1MouseClicked(evt);
+                btnSalirMouseClicked(evt);
             }
         });
 
@@ -122,13 +122,13 @@ public class Listar extends javax.swing.JFrame {
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLayout.createSequentialGroup()
                 .addGap(7, 7, 7)
-                .addComponent(btnActualizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(tableItems, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelLayout.createSequentialGroup()
                         .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(233, 233, 233)
+                        .addGap(191, 191, 191)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(textFiltro)))
@@ -150,7 +150,7 @@ public class Listar extends javax.swing.JFrame {
                     .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(textFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnActualizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23))
         );
 
@@ -189,9 +189,9 @@ public class Listar extends javax.swing.JFrame {
         List<Planta> lista;
          lista = sv.listarTodos();
         if (clasificacion.equals("")){
-            //lista = sv.listarTodos();
+            lista = sv.listarTodos();
         } else {
-            //pass Lista con filtro
+            lista = sv.listarPorClasificacion(clasificacion);
         }
         for (Planta p : lista) {
             nombre = p.getNombre();
@@ -203,10 +203,11 @@ public class Listar extends javax.swing.JFrame {
             modelo.addRow(new Object[] {idPlanta,nombre,precio,clasificacion,stock,descripcion});
         }
     }//GEN-LAST:event_btnActualizarMouseClicked
+                       
 
-    private void btnActualizar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizar1MouseClicked
+    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
         this.setVisible(false);
-    }//GEN-LAST:event_btnActualizar1MouseClicked
+    }//GEN-LAST:event_btnSalirMouseClicked
 
 
     class FondoPanel extends JPanel{
@@ -225,7 +226,7 @@ public class Listar extends javax.swing.JFrame {
     private javax.swing.JPanel alertPanel;
     private javax.swing.JLabel alertText;
     private javax.swing.JButton btnActualizar;
-    private javax.swing.JButton btnActualizar1;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JTable itemTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel panel;

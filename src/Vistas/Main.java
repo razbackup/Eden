@@ -21,8 +21,6 @@ public class Main extends javax.swing.JFrame {
     FondoPanel fondo = new FondoPanel(); // Creamos el fondo
     Validacion val = new Validacion();
     Controler login = new Controler();
-    int cont = 0;
-    int contDown = 5;
     public Main() {
         this.setContentPane(fondo);
         initComponents();

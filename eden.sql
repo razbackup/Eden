@@ -40,9 +40,6 @@ CREATE TABLE `planta` (
 -- Volcado de datos para la tabla `planta`
 --
 
-INSERT INTO `planta` (`id_planta`, `nombre`, `stock`, `precio`, `descripcion`, `clasificacion`) VALUES
-(5, 'awd', 123, 123, 'asdadawd', 2);
-
 -- --------------------------------------------------------
 
 --

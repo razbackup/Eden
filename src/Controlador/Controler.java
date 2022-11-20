@@ -102,6 +102,40 @@ public class Controler {
         
         return plantas;
     }
+     
+      public ArrayList<Planta> listarPorClasificacion(String clasifi){
+        String query;
+        ArrayList<Planta> plantas = new ArrayList<>();
+        try {
+            Conexion coneX=new Conexion();
+            Connection cnx=coneX.connection();
+            query="SELECT id_planta ,nombre, stock, precio, descripcion, TIPO.nombre_clasi FROM PLANTA join TIPO on PLANTA.clasificacion = TIPO.clasificacion"
+                    + " WHERE TIPO.nombre_clasi = ? ORDER BY stock";
+            PreparedStatement stmt=cnx.prepareStatement(query);
+            stmt.setString(1, clasifi);
+            //defino el elemento dónde recibiré el resultado del SELECT
+            ResultSet rs=stmt.executeQuery();
+            while (rs.next()){
+                Planta planta = new Planta();
+                planta.setId_producto(rs.getInt("id_planta"));
+                planta.setNombre(rs.getString("nombre"));
+                planta.setPrecio(rs.getInt("precio"));
+                planta.setStock(rs.getInt("precio"));
+                planta.setDescripcion(rs.getString("descripcion"));
+                planta.setNombre_clasi(rs.getString("TIPO.nombre_clasi"));
+                plantas.add(planta);
+            }
+            rs.close();
+            stmt.close();
+            cnx.close();
+        }catch(SQLException e){
+            System.out.println("Error SQL al listar las planta/s: "+e.getMessage());
+        }catch(Exception ex){
+            System.out.println("Error al encontrar las planta/s: "+ex.getMessage());
+        }  
+        
+        return plantas;
+    }
     
     
 }

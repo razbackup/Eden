@@ -11,6 +11,7 @@ import Modelo.Planta;
 import Controlador.Alerts;
 import Controlador.Validacion;
 import Controlador.Controler;
+import Controlador.Stop;
 
 public class Ingresar extends javax.swing.JFrame {
 
@@ -280,6 +281,11 @@ public class Ingresar extends javax.swing.JFrame {
         } catch (Exception ex) {
             new Alerts("Error, Hay un campo de texto con un valor incorrecto.").red(this.alertPanel, this.alertText);
         }
+        new Stop(2000){
+            public void run(){
+                new Alerts().offAlert(alertPanel, alertText);
+            }
+        };
     }//GEN-LAST:event_enviarActionPerformed
 
     class FondoPanel extends JPanel {
