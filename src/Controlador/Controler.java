@@ -11,49 +11,50 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import Controlador.Validacion;
 
 public class Controler {
-
+    Validacion val = new Validacion();
     public Controler() {
     }
-    
-    public boolean login(Usuario newuser){
+
+    public boolean login(Usuario newuser) {
         String query;
         ArrayList<Usuario> users = new ArrayList<>();
         try {
-            Conexion coneX=new Conexion();
-            Connection cnx=coneX.connection();
-            query="SELECT nombre, contrasenna FROM USUARIO";
-            PreparedStatement stmt=cnx.prepareStatement(query);
+            Conexion coneX = new Conexion();
+            Connection cnx = coneX.connection();
+            query = "SELECT nombre, contrasenna FROM USUARIO";
+            PreparedStatement stmt = cnx.prepareStatement(query);
             //defino el elemento dónde recibiré el resultado del SELECT
-            ResultSet rs=stmt.executeQuery();
-            while (rs.next()){
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
                 Usuario user = new Usuario();
                 user.setNombre(rs.getString("nombre"));
                 user.setContrasenna(rs.getString("contrasenna"));
                 users.add(user);
             }
-        }catch(SQLException e){
-            System.out.println("Error SQL al listar el usuario: "+e.getMessage());
-        }catch(Exception ex){
-            System.out.println("Error al encontrar usuario:  "+ex.getMessage());
-        }  
+        } catch (SQLException e) {
+            System.out.println("Error SQL al listar el usuario: " + e.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Error al encontrar usuario:  " + ex.getMessage());
+        }
         for (Usuario user : users) {
-            if (newuser.getNombre().equals(user.getNombre()) && newuser.getContrasenna().equals(user.getContrasenna())){
+            if (newuser.getNombre().equals(user.getNombre()) && newuser.getContrasenna().equals(user.getContrasenna())) {
                 System.out.println("Login correcto");
                 return true;
             }
         }
         return false;
     }
-    
-    public boolean ingresarPlantas(Planta planta){
+
+    public boolean ingresarPlantas(Planta planta) {
         String query;
         try {
-            Conexion coneX=new Conexion();
-            Connection cnx=coneX.connection();
-            query="INSERT INTO planta (nombre, stock, precio, descripcion, clasificacion) VALUES (?, ?, ?, ?, ?)";
-            PreparedStatement stmt=cnx.prepareStatement(query);
+            Conexion coneX = new Conexion();
+            Connection cnx = coneX.connection();
+            query = "INSERT INTO planta (nombre, stock, precio, descripcion, clasificacion) VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement stmt = cnx.prepareStatement(query);
             stmt.setString(1, planta.getNombre());
             stmt.setInt(2, planta.getStock());
             stmt.setInt(3, planta.getPrecio());
@@ -63,25 +64,25 @@ public class Controler {
             stmt.executeUpdate();//Inserto en la Base de Datos
             return true;
             //cerrar TODO
-        }catch(SQLException e){
-            System.out.println("Error SQL: "+e.getMessage());
-        }catch(Exception ex){ 
-            System.out.println("Error al encontrar usuario:  "+ex.getMessage());
-        }  
+        } catch (SQLException e) {
+            System.out.println("Error SQL: " + e.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Error al encontrar usuario:  " + ex.getMessage());
+        }
         return false;
     }
-    
-     public ArrayList<Planta> listarTodos(){
+
+    public ArrayList<Planta> listarTodos() {
         String query;
         ArrayList<Planta> plantas = new ArrayList<>();
         try {
-            Conexion coneX=new Conexion();
-            Connection cnx=coneX.connection();
-            query="SELECT id_planta ,nombre, stock, precio, descripcion, TIPO.nombre_clasi FROM PLANTA join TIPO on PLANTA.clasificacion = TIPO.clasificacion";
-            PreparedStatement stmt=cnx.prepareStatement(query);
+            Conexion coneX = new Conexion();
+            Connection cnx = coneX.connection();
+            query = "SELECT id_planta ,nombre, stock, precio, descripcion, TIPO.nombre_clasi FROM PLANTA join TIPO on PLANTA.clasificacion = TIPO.clasificacion";
+            PreparedStatement stmt = cnx.prepareStatement(query);
             //defino el elemento dónde recibiré el resultado del SELECT
-            ResultSet rs=stmt.executeQuery();
-            while (rs.next()){
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
                 Planta planta = new Planta();
                 planta.setId_producto(rs.getInt("id_planta"));
                 planta.setNombre(rs.getString("nombre"));
@@ -94,28 +95,28 @@ public class Controler {
             rs.close();
             stmt.close();
             cnx.close();
-        }catch(SQLException e){
-            System.out.println("Error SQL al listar el usuario: "+e.getMessage());
-        }catch(Exception ex){
-            System.out.println("Error al encontrar usuario:  "+ex.getMessage());
-        }  
-        
+        } catch (SQLException e) {
+            System.out.println("Error SQL al listar el usuario: " + e.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Error al encontrar usuario:  " + ex.getMessage());
+        }
+
         return plantas;
     }
-     
-      public ArrayList<Planta> listarPorClasificacion(String clasifi){
+
+    public ArrayList<Planta> listarPorClasificacion(String clasifi) {
         String query;
         ArrayList<Planta> plantas = new ArrayList<>();
         try {
-            Conexion coneX=new Conexion();
-            Connection cnx=coneX.connection();
-            query="SELECT id_planta ,nombre, stock, precio, descripcion, TIPO.nombre_clasi FROM PLANTA join TIPO on PLANTA.clasificacion = TIPO.clasificacion"
+            Conexion coneX = new Conexion();
+            Connection cnx = coneX.connection();
+            query = "SELECT id_planta ,nombre, stock, precio, descripcion, TIPO.nombre_clasi FROM PLANTA join TIPO on PLANTA.clasificacion = TIPO.clasificacion"
                     + " WHERE TIPO.nombre_clasi = ? ORDER BY stock";
-            PreparedStatement stmt=cnx.prepareStatement(query);
+            PreparedStatement stmt = cnx.prepareStatement(query);
             stmt.setString(1, clasifi);
             //defino el elemento dónde recibiré el resultado del SELECT
-            ResultSet rs=stmt.executeQuery();
-            while (rs.next()){
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
                 Planta planta = new Planta();
                 planta.setId_producto(rs.getInt("id_planta"));
                 planta.setNombre(rs.getString("nombre"));
@@ -128,14 +129,37 @@ public class Controler {
             rs.close();
             stmt.close();
             cnx.close();
-        }catch(SQLException e){
-            System.out.println("Error SQL al listar las planta/s: "+e.getMessage());
-        }catch(Exception ex){
-            System.out.println("Error al encontrar las planta/s: "+ex.getMessage());
-        }  
-        
+        } catch (SQLException e) {
+            System.out.println("Error SQL al listar las planta/s: " + e.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Error al encontrar las planta/s: " + ex.getMessage());
+        }
+
         return plantas;
     }
-    
-    
+
+    public boolean borrarPlanta(String id_planta) {
+        String query;
+        // Para comprobar su existencia
+        try {
+            if (val.comprobarSiExiste(id_planta)){
+            Conexion coneX = new Conexion();
+            Connection cnx = coneX.connection();
+            query = "DELETE FROM PLANTA WHERE id_planta = ?";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            stmt.setString(1, id_planta);
+            stmt.executeUpdate();
+            stmt.close();
+            cnx.close();
+            return true;            
+            }
+        } catch (SQLException e) {
+            System.out.println("Error SQL al Borrar: " + e.getMessage());
+            return false;
+        } catch (Exception ex) {
+            System.out.println("Error al Borrar: " + ex.getMessage());
+            return false;
+        }
+        return false;
+    }
 }

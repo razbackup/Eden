@@ -1,5 +1,5 @@
-
 package Vistas;
+
 import Controlador.Alerts;
 import Controlador.Controler;
 import Controlador.Stop;
@@ -11,18 +11,22 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Vicente, Jeremy
  */
 public class Listar extends javax.swing.JFrame {
+
     FondoPanel fondo = new FondoPanel();
+
     public Listar() {
         this.setContentPane(fondo);
         initComponents();
         alertPanel.setVisible(false);
         this.panel.setBackground(new Color(10, 86, 18, 120));
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -32,9 +36,12 @@ public class Listar extends javax.swing.JFrame {
         itemTable = new javax.swing.JTable();
         btnActualizar = new javax.swing.JButton();
         titleNotUse = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        buscarTextNotUse = new javax.swing.JLabel();
         textFiltro = new javax.swing.JTextField();
         btnSalir = new javax.swing.JButton();
+        eliminarTextNotUse = new javax.swing.JLabel();
+        textFiltroElimianar = new javax.swing.JTextField();
+        btnBorrar = new javax.swing.JButton();
         alertPanel = new javax.swing.JPanel();
         alertText = new javax.swing.JLabel();
 
@@ -85,6 +92,7 @@ public class Listar extends javax.swing.JFrame {
         btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizar.setText("Actualizar");
         btnActualizar.setBorder(null);
+        btnActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnActualizarMouseClicked(evt);
@@ -97,10 +105,10 @@ public class Listar extends javax.swing.JFrame {
         titleNotUse.setText("Listar Plantas");
         titleNotUse.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Buscar por Clasificacion:");
+        buscarTextNotUse.setBackground(new java.awt.Color(0, 0, 0));
+        buscarTextNotUse.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        buscarTextNotUse.setForeground(new java.awt.Color(255, 255, 255));
+        buscarTextNotUse.setText("Buscar por Clasificacion:");
 
         textFiltro.setBackground(new java.awt.Color(255, 255, 255));
         textFiltro.setForeground(new java.awt.Color(0, 0, 0));
@@ -110,9 +118,29 @@ public class Listar extends javax.swing.JFrame {
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Salir");
         btnSalir.setBorder(null);
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSalirMouseClicked(evt);
+            }
+        });
+
+        eliminarTextNotUse.setBackground(new java.awt.Color(0, 0, 0));
+        eliminarTextNotUse.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        eliminarTextNotUse.setForeground(new java.awt.Color(255, 255, 255));
+        eliminarTextNotUse.setText("Borrar Planta, ID: ");
+
+        textFiltroElimianar.setBackground(new java.awt.Color(255, 255, 255));
+        textFiltroElimianar.setForeground(new java.awt.Color(0, 0, 0));
+
+        btnBorrar.setBackground(new java.awt.Color(10, 86, 18));
+        btnBorrar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnBorrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBorrar.setText("Borrar");
+        btnBorrar.setBorder(null);
+        btnBorrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBorrarMouseClicked(evt);
             }
         });
 
@@ -124,15 +152,21 @@ public class Listar extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tableItems, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelLayout.createSequentialGroup()
                         .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(191, 191, 191)
-                        .addComponent(jLabel1)
+                        .addGap(32, 32, 32)
+                        .addComponent(buscarTextNotUse)
+                        .addGap(18, 18, 18)
+                        .addComponent(textFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(eliminarTextNotUse)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textFiltro)))
-                .addContainerGap(80, Short.MAX_VALUE))
+                        .addComponent(textFiltroElimianar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(51, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(titleNotUse)
@@ -148,9 +182,12 @@ public class Listar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
+                    .addComponent(buscarTextNotUse)
                     .addComponent(textFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(eliminarTextNotUse)
+                    .addComponent(textFiltroElimianar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23))
         );
 
@@ -174,21 +211,25 @@ public class Listar extends javax.swing.JFrame {
 
     private void btnActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseClicked
         new Alerts("Actualizado!").green(alertPanel, alertText);
-        new Stop(2000){
-            public void run(){
+        new Stop(2000) {
+            public void run() {
                 new Alerts().offAlert(alertPanel, alertText);
             }
         };
-        
-        String nombre,descripcion,clasificacion;
-        int precio,stock,idPlanta;
+
+        String nombre, descripcion, clasificacion;
+        int precio, stock, idPlanta;
         Controler sv = new Controler();
-        DefaultTableModel modelo = (DefaultTableModel)this.itemTable.getModel();
-        try{clasificacion = this.textFiltro.getText();}catch(Exception e){clasificacion="";}
+        DefaultTableModel modelo = (DefaultTableModel) this.itemTable.getModel();
+        try {
+            clasificacion = this.textFiltro.getText();
+        } catch (Exception e) {
+            clasificacion = "";
+        }
         modelo.setRowCount(0);
         List<Planta> lista;
-         lista = sv.listarTodos();
-        if (clasificacion.equals("")){
+        lista = sv.listarTodos();
+        if (clasificacion.equals("")) {
             lista = sv.listarTodos();
         } else {
             lista = sv.listarPorClasificacion(clasificacion);
@@ -200,38 +241,62 @@ public class Listar extends javax.swing.JFrame {
             precio = p.getPrecio();
             stock = p.getStock();
             idPlanta = p.getId_producto();
-            modelo.addRow(new Object[] {idPlanta,nombre,precio,clasificacion,stock,descripcion});
+            modelo.addRow(new Object[]{idPlanta, nombre, precio, clasificacion, stock, descripcion});
         }
     }//GEN-LAST:event_btnActualizarMouseClicked
-                       
+
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
         this.setVisible(false);
     }//GEN-LAST:event_btnSalirMouseClicked
 
+    private void btnBorrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBorrarMouseClicked
+        String id_planta = this.textFiltroElimianar.getText();
+        Controler sv = new Controler();
+        if (sv.borrarPlanta(id_planta)) {
+            new Alerts("Elemento Borrado con exito!").green(alertPanel, alertText);
+            new Stop(2000) {
+                public void run() {
+                    new Alerts().offAlert(alertPanel, alertText);
+                }
+            };
+        } else {
+            new Alerts("Probablemente el elemento que estas buscando borrar no exista!").red(alertPanel, alertText);
+            new Stop(2000) {
+                public void run() {
+                    new Alerts().offAlert(alertPanel, alertText);
+                }
+            };
 
-    class FondoPanel extends JPanel{
+        }
+    }//GEN-LAST:event_btnBorrarMouseClicked
+
+    class FondoPanel extends JPanel {
+
         private Image imagen;
-        
+
         @Override
-        public void paint(Graphics g){
+        public void paint(Graphics g) {
             imagen = new ImageIcon(getClass().getResource("/imagen/576.png")).getImage(); // Designamos la ruta
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this); // La posicion
             setOpaque(false);
             super.paint(g);
         }
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel alertPanel;
     private javax.swing.JLabel alertText;
     private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnBorrar;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JLabel buscarTextNotUse;
+    private javax.swing.JLabel eliminarTextNotUse;
     private javax.swing.JTable itemTable;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel panel;
     private javax.swing.JScrollPane tableItems;
     private javax.swing.JTextField textFiltro;
+    private javax.swing.JTextField textFiltroElimianar;
     private javax.swing.JLabel titleNotUse;
     // End of variables declaration//GEN-END:variables
 }
