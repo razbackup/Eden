@@ -29,9 +29,10 @@ public class Menu extends javax.swing.JFrame {
         logOut_btn = new javax.swing.JLabel();
         ingresarPlanta = new javax.swing.JLabel();
         btnListar = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        count3 = new javax.swing.JLabel();
+        count1 = new javax.swing.JLabel();
+        count2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -79,23 +80,13 @@ public class Menu extends javax.swing.JFrame {
 
         btnListar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnListar.setForeground(new java.awt.Color(255, 255, 255));
-        btnListar.setText("Listar Plantas");
+        btnListar.setText("Listar y Borrar Plantas");
         btnListar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnListar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnListarMouseClicked(evt);
             }
         });
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Modificar Planta");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Borrar planta");
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icon_menu.png"))); // NOI18N
 
@@ -122,12 +113,6 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(btnListar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(hub_menuLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(hub_menuLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(hub_menuLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(ingresarPlanta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -144,14 +129,19 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(ingresarPlanta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnListar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 287, Short.MAX_VALUE)
                 .addComponent(logOut_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
+
+        count3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        count3.setText("Planta 3");
+
+        count1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        count1.setText("Planta 1");
+
+        count2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        count2.setText("Planta 2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -159,11 +149,24 @@ public class Menu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(hub_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 764, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                .addComponent(count1)
+                .addGap(118, 118, 118)
+                .addComponent(count2)
+                .addGap(114, 114, 114)
+                .addComponent(count3)
+                .addGap(113, 113, 113))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(hub_menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(243, 243, 243)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(count3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(count1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(count2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -197,14 +200,19 @@ public class Menu extends javax.swing.JFrame {
             super.paint(g);
         }
     }
+    
+    
+    
+    
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bienvenidoNoUsar;
     private javax.swing.JLabel btnListar;
+    private javax.swing.JLabel count1;
+    private javax.swing.JLabel count2;
+    private javax.swing.JLabel count3;
     private javax.swing.JPanel hub_menu;
     private javax.swing.JLabel ingresarPlanta;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel logOut_btn;
     protected javax.swing.JLabel nombre_menu;

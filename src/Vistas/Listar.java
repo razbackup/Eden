@@ -138,6 +138,7 @@ public class Listar extends javax.swing.JFrame {
         btnBorrar.setForeground(new java.awt.Color(255, 255, 255));
         btnBorrar.setText("Borrar");
         btnBorrar.setBorder(null);
+        btnBorrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBorrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnBorrarMouseClicked(evt);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2022 a las 04:00:59
+-- Tiempo de generación: 20-11-2022 a las 19:45:13
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -17,9 +17,12 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+
 --
 -- Base de datos: `eden`
 --
+CREATE DATABASE IF NOT EXISTS `eden` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `eden`;
 
 -- --------------------------------------------------------
 
@@ -35,10 +38,6 @@ CREATE TABLE `planta` (
   `descripcion` varchar(1000) NOT NULL,
   `clasificacion` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `planta`
---
 
 -- --------------------------------------------------------
 
@@ -122,13 +121,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `planta`
 --
 ALTER TABLE `planta`
-  MODIFY `id_planta` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_planta` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- Restricciones para tablas volcadas
