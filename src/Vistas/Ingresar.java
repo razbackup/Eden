@@ -12,6 +12,7 @@ import Controlador.Alerts;
 import Controlador.Validacion;
 import Controlador.Controler;
 import Controlador.Stop;
+import java.awt.Toolkit;
 
 public class Ingresar extends javax.swing.JFrame {
 
@@ -26,6 +27,7 @@ public class Ingresar extends javax.swing.JFrame {
         this.precioText.setBorder(BorderFactory.createCompoundBorder(this.precioText.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 10)));
         this.descText.setBorder(BorderFactory.createCompoundBorder(this.descText.getBorder(), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
         this.stock.setBorder(BorderFactory.createCompoundBorder(this.stock.getBorder(), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+        setIconImage(getIconImage());
     }
 
     @SuppressWarnings("unchecked")
@@ -251,7 +253,11 @@ public class Ingresar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagen/icon_aplication.png"));
+        return retValue;
+    }
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_salirActionPerformed

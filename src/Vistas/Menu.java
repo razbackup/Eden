@@ -4,6 +4,7 @@ import Controlador.Controler;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -27,7 +28,9 @@ public class Menu extends javax.swing.JFrame {
         count1.setText("");
         count2.setText("Aun no hay plantas populares");
         count3.setText("");
+        
         }
+        setIconImage(getIconImage());
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -198,6 +201,11 @@ public class Menu extends javax.swing.JFrame {
     Main main = new Main();
     Ingresar ing = new Ingresar();
     Listar lis = new Listar();
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagen/icon_aplication.png"));
+        return retValue;
+    }
     private void logOut_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOut_btnMouseClicked
         main.setVisible(true);
         this.setVisible(false);

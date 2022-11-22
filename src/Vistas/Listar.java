@@ -7,6 +7,7 @@ import Modelo.Planta;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -17,14 +18,13 @@ import javax.swing.table.DefaultTableModel;
  * @author Vicente, Jeremy
  */
 public class Listar extends javax.swing.JFrame {
-
     FondoPanel fondo = new FondoPanel();
-
     public Listar() {
         this.setContentPane(fondo);
         initComponents();
         alertPanel.setVisible(false);
         this.panel.setBackground(new Color(10, 86, 18, 120));
+        setIconImage(getIconImage());
     }
 
     @SuppressWarnings("unchecked")
@@ -209,7 +209,12 @@ public class Listar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagen/icon_aplication.png"));
+        return retValue;
+    }
+    
     private void btnActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseClicked
         new Alerts("Actualizado!").green(alertPanel, alertText);
         new Stop(2000) {
@@ -284,6 +289,7 @@ public class Listar extends javax.swing.JFrame {
             super.paint(g);
         }
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel alertPanel;

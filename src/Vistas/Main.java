@@ -24,6 +24,7 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         this.setContentPane(fondo);
         initComponents();
+        setIconImage(getIconImage());
         alertPanel.setVisible(false);
         alertText.setBorder(BorderFactory.createCompoundBorder(this.alertText.getBorder(), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
         userText.setBorder(BorderFactory.createCompoundBorder(this.userText.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 10)));
@@ -31,7 +32,7 @@ public class Main extends javax.swing.JFrame {
         Image icon = new ImageIcon(this.getClass().getResource("/imagen/icon.png")).getImage();
         this.icon.setIcon(new ImageIcon(icon));
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -130,7 +131,11 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagen/icon_aplication.png"));
+        return retValue;
+    }
     private void ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarActionPerformed
         Usuario user = new Usuario(this.userText.getText().toLowerCase(), this.passwordText.getText());
         if (val.validName(user.getNombre().toLowerCase())) {
