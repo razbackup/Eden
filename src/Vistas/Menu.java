@@ -1,6 +1,6 @@
 package Vistas;
 
-import Vistas.Main.FondoPanel;
+import Controlador.Controler;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -13,11 +13,21 @@ import javax.swing.JPanel;
  */
 public class Menu extends javax.swing.JFrame {
     FondoPanel fondo = new FondoPanel();
+    Controler ctrl = new Controler();
     public Menu() {
         this.setContentPane(fondo);
         initComponents();
         hub_menu.setBackground(new Color(10,86,18,120));
         this.logOut_btn.setBorder(BorderFactory.createCompoundBorder(this.logOut_btn.getBorder(), BorderFactory.createEmptyBorder(0, 15, 0, 0)));
+        try{
+        count1.setText(ctrl.plantaPopular().get(0).getCantidad() +" "+ ctrl.plantaPopular().get(0).getNombre_clasi());
+        count2.setText(ctrl.plantaPopular().get(1).getCantidad() +" "+ ctrl.plantaPopular().get(1).getNombre_clasi());
+        count3.setText(ctrl.plantaPopular().get(2).getCantidad() +" "+ ctrl.plantaPopular().get(2).getNombre_clasi());
+        } catch(Exception e) {
+        count1.setText("");
+        count2.setText("Aun no hay plantas populares");
+        count3.setText("");
+        }
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -33,13 +43,13 @@ public class Menu extends javax.swing.JFrame {
         count3 = new javax.swing.JLabel();
         count1 = new javax.swing.JLabel();
         count2 = new javax.swing.JLabel();
+        headTextNotUse = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setMaximizedBounds(new java.awt.Rectangle(1024, 576, 576, 576));
         setMaximumSize(new java.awt.Dimension(1024, 576));
         setMinimumSize(new java.awt.Dimension(1024, 576));
-        setPreferredSize(new java.awt.Dimension(1024, 576));
         setResizable(false);
         setType(java.awt.Window.Type.POPUP);
 
@@ -135,13 +145,20 @@ public class Menu extends javax.swing.JFrame {
         );
 
         count3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        count3.setForeground(new java.awt.Color(10, 86, 18));
         count3.setText("Planta 3");
 
         count1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        count1.setForeground(new java.awt.Color(10, 86, 18));
         count1.setText("Planta 1");
 
         count2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        count2.setForeground(new java.awt.Color(10, 86, 18));
         count2.setText("Planta 2");
+
+        headTextNotUse.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        headTextNotUse.setForeground(new java.awt.Color(10, 86, 18));
+        headTextNotUse.setText("Top 3 tipos de plantas");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -149,19 +166,26 @@ public class Menu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(hub_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
-                .addComponent(count1)
-                .addGap(118, 118, 118)
-                .addComponent(count2)
-                .addGap(114, 114, 114)
-                .addComponent(count3)
-                .addGap(113, 113, 113))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(211, 211, 211)
+                        .addComponent(headTextNotUse))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(count1)
+                        .addGap(72, 72, 72)
+                        .addComponent(count2)
+                        .addGap(59, 59, 59)
+                        .addComponent(count3)))
+                .addContainerGap(217, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(hub_menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(243, 243, 243)
+                .addGap(52, 52, 52)
+                .addComponent(headTextNotUse)
+                .addGap(117, 117, 117)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(count3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(count1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,6 +235,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel count1;
     private javax.swing.JLabel count2;
     private javax.swing.JLabel count3;
+    private javax.swing.JLabel headTextNotUse;
     private javax.swing.JPanel hub_menu;
     private javax.swing.JLabel ingresarPlanta;
     private javax.swing.JLabel jLabel5;

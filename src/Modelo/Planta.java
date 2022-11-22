@@ -5,11 +5,17 @@ package Modelo;
  * @author Vicente
  */
 public class Planta {
+
     private int id_producto;
-    private String nombre,descripcion;
+    private String nombre, descripcion;
     private int clasificacion;
-    private int precio,stock;
+    private int precio, stock, cantidad;
     private String nombre_clasi;
+
+    public Planta(int cantidad, String nombre_clasi) {
+        this.cantidad = cantidad;
+        this.nombre_clasi = nombre_clasi;
+    }
 
     public Planta() {
     }
@@ -30,7 +36,7 @@ public class Planta {
     public void setStock(int stock) {
         this.stock = stock;
     }
-    
+
     public int getId_producto() {
         return id_producto;
     }
@@ -78,6 +84,13 @@ public class Planta {
     public void setNombre_clasi(String nombre_clasi) {
         this.nombre_clasi = nombre_clasi;
     }
-    
-    
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
 }

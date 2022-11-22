@@ -3,6 +3,7 @@
  * @author Vicente Vasquez.
  */
 package Controlador;
+
 import BD.Conexion;
 import Modelo.Planta;
 import Modelo.Usuario;
@@ -15,9 +16,6 @@ import Controlador.Validacion;
 
 public class Controler {
     Validacion val = new Validacion();
-    public Controler() {
-    }
-
     public boolean login(Usuario newuser) {
         String query;
         ArrayList<Usuario> users = new ArrayList<>();
@@ -142,16 +140,16 @@ public class Controler {
         String query;
         // Para comprobar su existencia
         try {
-            if (val.comprobarSiExiste(id_planta)){
-            Conexion coneX = new Conexion();
-            Connection cnx = coneX.connection();
-            query = "DELETE FROM PLANTA WHERE id_planta = ?";
-            PreparedStatement stmt = cnx.prepareStatement(query);
-            stmt.setString(1, id_planta);
-            stmt.executeUpdate();
-            stmt.close();
-            cnx.close();
-            return true;            
+            if (val.comprobarSiExiste(id_planta)) {
+                Conexion coneX = new Conexion();
+                Connection cnx = coneX.connection();
+                query = "DELETE FROM PLANTA WHERE id_planta = ?";
+                PreparedStatement stmt = cnx.prepareStatement(query);
+                stmt.setString(1, id_planta);
+                stmt.executeUpdate();
+                stmt.close();
+                cnx.close();
+                return true;
             }
         } catch (SQLException e) {
             System.out.println("Error SQL al Borrar: " + e.getMessage());
@@ -161,5 +159,32 @@ public class Controler {
             return false;
         }
         return false;
+    }
+
+    public ArrayList<Planta> plantaPopular() {
+        ArrayList<Planta> plantas = new ArrayList<Planta>();
+        String query;
+        try {
+            Conexion coneX = new Conexion();
+            Connection cnx = coneX.connection();
+            query = "SELECT TIPO.nombre_clasi ,COUNT(TIPO.nombre_clasi) FROM PLANTA join TIPO on PLANTA.clasificacion = TIPO.clasificacion GROUP BY TIPO.nombre_clasi";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            //defino el elemento dónde recibiré el resultado del SELECT
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Planta planta = new Planta();
+                planta.setCantidad(rs.getInt("COUNT(TIPO.nombre_clasi)"));
+                planta.setNombre_clasi(rs.getString("TIPO.nombre_clasi"));
+                plantas.add(planta);
+            }
+            rs.close();
+            stmt.close();
+            cnx.close();
+        } catch (SQLException e) {
+            System.out.println("Error SQL al listar el usuario: " + e.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Error al encontrar usuario:  " + ex.getMessage());
+        }
+        return plantas;
     }
 }
