@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 /**
  *
- * @author Vicente
+ * @author Vicente, Jeremy
  */
 public class Menu extends javax.swing.JFrame {
     FondoPanel fondo = new FondoPanel();
