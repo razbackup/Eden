@@ -12,7 +12,9 @@ import Controlador.Alerts;
 import Controlador.Validacion;
 import Controlador.Controler;
 import Controlador.Stop;
+import Vistas.Main.FondoPanel;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 public class Ingresar extends javax.swing.JFrame {
 
@@ -54,7 +56,6 @@ public class Ingresar extends javax.swing.JFrame {
         alertText = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1024, 576));
         setMinimumSize(new java.awt.Dimension(1024, 576));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -78,6 +79,11 @@ public class Ingresar extends javax.swing.JFrame {
         nombreText.setForeground(new java.awt.Color(51, 51, 51));
         nombreText.setBorder(null);
         nombreText.setMargin(new java.awt.Insets(10, 10, 10, 10));
+        nombreText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nombreTextKeyTyped(evt);
+            }
+        });
 
         descNotUse.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         descNotUse.setForeground(new java.awt.Color(255, 255, 255));
@@ -88,6 +94,11 @@ public class Ingresar extends javax.swing.JFrame {
         descText.setForeground(new java.awt.Color(0, 0, 0));
         descText.setRows(5);
         descText.setBorder(null);
+        descText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                descTextKeyTyped(evt);
+            }
+        });
         desc_wrapper.setViewportView(descText);
 
         clasificacion.setBackground(new java.awt.Color(255, 255, 255));
@@ -143,12 +154,22 @@ public class Ingresar extends javax.swing.JFrame {
         stock.setForeground(new java.awt.Color(51, 51, 51));
         stock.setBorder(null);
         stock.setMargin(new java.awt.Insets(10, 10, 10, 10));
+        stock.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                stockKeyTyped(evt);
+            }
+        });
 
         precioText.setBackground(new java.awt.Color(255, 255, 255));
         precioText.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         precioText.setForeground(new java.awt.Color(51, 51, 51));
         precioText.setBorder(null);
         precioText.setMargin(new java.awt.Insets(10, 10, 10, 10));
+        precioText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                precioTextKeyTyped(evt);
+            }
+        });
 
         stockNotUse.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         stockNotUse.setForeground(new java.awt.Color(255, 255, 255));
@@ -260,6 +281,10 @@ public class Ingresar extends javax.swing.JFrame {
     }
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         this.setVisible(false);
+        nombreText.setText("");
+        stock.setText("");
+        precioText.setText("");
+        descText.setText("");
     }//GEN-LAST:event_salirActionPerformed
     // Terminar de extraer los datos de los campos para enviar la soli
     private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
@@ -293,6 +318,38 @@ public class Ingresar extends javax.swing.JFrame {
             }
         };
     }//GEN-LAST:event_enviarActionPerformed
+
+    private void nombreTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreTextKeyTyped
+        char validar=evt.getKeyChar();
+        
+        if(Character.isDigit(validar)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane,"Ingrese solo carácteres");
+        }
+    }//GEN-LAST:event_nombreTextKeyTyped
+
+    private void precioTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioTextKeyTyped
+        char validar= evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane,"Ingrese solo números");
+        }
+    }//GEN-LAST:event_precioTextKeyTyped
+
+    private void stockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_stockKeyTyped
+        char validar= evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane,"Ingrese solo números");
+    }//GEN-LAST:event_stockKeyTyped
+    }
+    private void descTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_descTextKeyTyped
+
+    }//GEN-LAST:event_descTextKeyTyped
+
 
     class FondoPanel extends JPanel {
 

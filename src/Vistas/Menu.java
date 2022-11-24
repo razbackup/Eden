@@ -117,7 +117,7 @@ public class Menu extends javax.swing.JFrame {
                                 .addComponent(nombre_menu)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel5)))
-                        .addGap(0, 67, Short.MAX_VALUE))
+                        .addGap(0, 61, Short.MAX_VALUE))
                     .addGroup(hub_menuLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(logOut_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
