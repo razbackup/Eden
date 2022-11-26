@@ -181,10 +181,46 @@ public class Controler {
             stmt.close();
             cnx.close();
         } catch (SQLException e) {
-            System.out.println("Error SQL al listar el usuario: " + e.getMessage());
+            System.out.println("Error SQL: " + e.getMessage());
         } catch (Exception ex) {
-            System.out.println("Error al encontrar usuario:  " + ex.getMessage());
+            System.out.println("Error:  " + ex.getMessage());
         }
         return plantas;
+    }
+    
+    public Planta buscarPorID(int id){
+        Planta planta = new Planta();
+        String query;
+        try {
+            Conexion coneX = new Conexion();
+            Connection cnx = coneX.connection();
+            query = "SELECT nombre,stock,descripcion,precio FROM planta WHERE id_planta = ?";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            stmt.setInt(1, id);
+            //defino el elemento dónde recibiré el resultado del SELECT
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()){
+            planta.setStock(rs.getInt("stock"));
+            planta.setPrecio(rs.getInt("precio"));
+            planta.setNombre(rs.getString("nombre"));
+            planta.setDescripcion(rs.getString("descripcion"));
+            } else {
+             return new Planta();   
+            }
+            rs.close();
+            stmt.close();
+            cnx.close();
+        } catch (SQLException e) {
+            System.out.println("Error SQL al listar el usuario: " + e.getMessage());
+            return new Planta();
+        } catch (Exception ex) {
+            System.out.println("Error al encontrar usuario:  " + ex.getMessage());
+            return new Planta();
+        }
+        return planta;
+    }
+    
+    public boolean modificarPlanta(Planta planta){
+        return false;
     }
 }

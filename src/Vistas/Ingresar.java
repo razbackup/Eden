@@ -6,20 +6,16 @@ import java.awt.Image;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import Controlador.Controler;
 import Modelo.Planta;
 import Controlador.Alerts;
 import Controlador.Validacion;
 import Controlador.Controler;
 import Controlador.Stop;
-import Vistas.Main.FondoPanel;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 public class Ingresar extends javax.swing.JFrame {
-
     FondoPanel fondo = new FondoPanel();
-
     public Ingresar() {
         this.setContentPane(fondo);
         initComponents();

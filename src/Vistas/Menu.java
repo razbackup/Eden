@@ -43,6 +43,7 @@ public class Menu extends javax.swing.JFrame {
         ingresarPlanta = new javax.swing.JLabel();
         btnListar = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        modificarPlanta = new javax.swing.JLabel();
         count3 = new javax.swing.JLabel();
         count1 = new javax.swing.JLabel();
         count2 = new javax.swing.JLabel();
@@ -103,6 +104,16 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icon_menu.png"))); // NOI18N
 
+        modificarPlanta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        modificarPlanta.setForeground(new java.awt.Color(255, 255, 255));
+        modificarPlanta.setText("Modificar Planta");
+        modificarPlanta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        modificarPlanta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modificarPlantaMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout hub_menuLayout = new javax.swing.GroupLayout(hub_menu);
         hub_menu.setLayout(hub_menuLayout);
         hub_menuLayout.setHorizontalGroup(
@@ -117,7 +128,7 @@ public class Menu extends javax.swing.JFrame {
                                 .addComponent(nombre_menu)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel5)))
-                        .addGap(0, 61, Short.MAX_VALUE))
+                        .addGap(0, 67, Short.MAX_VALUE))
                     .addGroup(hub_menuLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(logOut_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -126,7 +137,10 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(btnListar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(hub_menuLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(ingresarPlanta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(ingresarPlanta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(hub_menuLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(modificarPlanta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         hub_menuLayout.setVerticalGroup(
@@ -142,7 +156,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(ingresarPlanta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnListar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 287, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(modificarPlanta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 255, Short.MAX_VALUE)
                 .addComponent(logOut_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
@@ -201,6 +217,7 @@ public class Menu extends javax.swing.JFrame {
     Main main = new Main();
     Ingresar ing = new Ingresar();
     Listar lis = new Listar();
+    Editar edit = new Editar();
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagen/icon_aplication.png"));
@@ -208,9 +225,10 @@ public class Menu extends javax.swing.JFrame {
     }
     private void logOut_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOut_btnMouseClicked
         main.setVisible(true);
-        this.setVisible(false);
-        ing.setVisible(false);
-        lis.setVisible(false);
+        this.dispose();
+        ing.dispose();
+        lis.dispose();
+        edit.dispose();
     }//GEN-LAST:event_logOut_btnMouseClicked
 
     private void ingresarPlantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarPlantaMouseClicked
@@ -220,6 +238,10 @@ public class Menu extends javax.swing.JFrame {
     private void btnListarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnListarMouseClicked
         lis.setVisible(true);
     }//GEN-LAST:event_btnListarMouseClicked
+
+    private void modificarPlantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarPlantaMouseClicked
+        edit.setVisible(true);
+    }//GEN-LAST:event_modificarPlantaMouseClicked
     
     class FondoPanel extends JPanel{
         private Image imagen;
@@ -248,6 +270,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel ingresarPlanta;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel logOut_btn;
+    private javax.swing.JLabel modificarPlanta;
     protected javax.swing.JLabel nombre_menu;
     // End of variables declaration//GEN-END:variables
 }
