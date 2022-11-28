@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Listar extends javax.swing.JFrame {
     FondoPanel fondo = new FondoPanel();
+    Controler sv = new Controler();
     public Listar() {
         this.setContentPane(fondo);
         initComponents();
@@ -56,6 +57,8 @@ public class Listar extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panel.setBackground(new java.awt.Color(0, 153, 0));
+        panel.setMaximumSize(new java.awt.Dimension(902, 463));
+        panel.setMinimumSize(new java.awt.Dimension(902, 463));
 
         tableItems.setBackground(new java.awt.Color(255, 255, 255));
         tableItems.setBorder(null);
@@ -225,7 +228,6 @@ public class Listar extends javax.swing.JFrame {
 
         String nombre, descripcion, clasificacion;
         int precio, stock, idPlanta;
-        Controler sv = new Controler();
         DefaultTableModel modelo = (DefaultTableModel) this.itemTable.getModel();
         try {
             clasificacion = this.textFiltro.getText();

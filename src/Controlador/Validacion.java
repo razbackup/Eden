@@ -46,10 +46,10 @@ public class Validacion {
             cnx.close();
             return false;}      
         } catch (SQLException e) {
-            System.out.println("Error SQL al Borrar: " + e.getMessage());
+            System.out.println("Error SQL:" + e.getMessage());
             return false;
         } catch (Exception ex) {
-            System.out.println("Error al Borrar: " + ex.getMessage());
+            System.out.println("Error:" + ex.getMessage());
             return false;
         }
     }

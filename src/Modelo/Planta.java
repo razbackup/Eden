@@ -92,5 +92,10 @@ public class Planta {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+    
+    
+    public void kill_id_Planta(Planta planta){
+        planta.setId_producto(-99);
+    }
 
 }

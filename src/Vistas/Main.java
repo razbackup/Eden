@@ -14,7 +14,7 @@ import Controlador.Alerts;
 
 /**
  *
- * @author Vicente.
+ * @author Vicente, Jeremy
  */
 public class Main extends javax.swing.JFrame {
 

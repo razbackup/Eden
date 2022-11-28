@@ -1,6 +1,6 @@
 /**
  *
- * @author Vicente Vasquez.
+ * @author Vicente , Jeremy
  */
 package Controlador;
 
@@ -85,7 +85,7 @@ public class Controler {
                 planta.setId_producto(rs.getInt("id_planta"));
                 planta.setNombre(rs.getString("nombre"));
                 planta.setPrecio(rs.getInt("precio"));
-                planta.setStock(rs.getInt("precio"));
+                planta.setStock(rs.getInt("stock"));
                 planta.setDescripcion(rs.getString("descripcion"));
                 planta.setNombre_clasi(rs.getString("TIPO.nombre_clasi"));
                 plantas.add(planta);
@@ -119,7 +119,7 @@ public class Controler {
                 planta.setId_producto(rs.getInt("id_planta"));
                 planta.setNombre(rs.getString("nombre"));
                 planta.setPrecio(rs.getInt("precio"));
-                planta.setStock(rs.getInt("precio"));
+                planta.setStock(rs.getInt("stock"));
                 planta.setDescripcion(rs.getString("descripcion"));
                 planta.setNombre_clasi(rs.getString("TIPO.nombre_clasi"));
                 plantas.add(planta);
@@ -167,7 +167,8 @@ public class Controler {
         try {
             Conexion coneX = new Conexion();
             Connection cnx = coneX.connection();
-            query = "SELECT TIPO.nombre_clasi ,COUNT(TIPO.nombre_clasi) FROM PLANTA join TIPO on PLANTA.clasificacion = TIPO.clasificacion GROUP BY TIPO.nombre_clasi";
+            query = "SELECT TIPO.nombre_clasi ,COUNT(TIPO.nombre_clasi) "
+                    + "FROM PLANTA join TIPO on PLANTA.clasificacion = TIPO.clasificacion GROUP BY TIPO.nombre_clasi";
             PreparedStatement stmt = cnx.prepareStatement(query);
             //defino el elemento dónde recibiré el resultado del SELECT
             ResultSet rs = stmt.executeQuery();
@@ -221,6 +222,37 @@ public class Controler {
     }
     
     public boolean modificarPlanta(Planta planta){
+        String query;
+        try {
+            Conexion coneX = new Conexion();
+            Connection cnx = coneX.connection();
+            query = "UPDATE planta SET nombre=?, stock=?, precio=?, descripcion=?"
+                    + " WHERE id_planta=?";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            System.out.println(planta.getNombre());
+            System.out.println(planta.getDescripcion());
+            System.out.println(planta.getPrecio());
+            System.out.println(planta.getStock());
+            System.out.println(planta.getId_producto());
+            if (planta.getId_producto() != -99){
+                stmt.setString(1, planta.getNombre());
+                stmt.setInt(2, planta.getStock());
+                stmt.setInt(3, planta.getPrecio());
+                stmt.setString(4, planta.getDescripcion());
+                stmt.setInt(5, planta.getId_producto());
+                stmt.executeUpdate();
+                stmt.close();
+                cnx.close();
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            System.out.println("Error SQL: " + e.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Error:" + ex.getMessage());
+            return false;
+        }
         return false;
     }
 }

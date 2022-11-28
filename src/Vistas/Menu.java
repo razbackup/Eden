@@ -8,30 +8,25 @@ import java.awt.Toolkit;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
 /**
  *
  * @author Vicente, Jeremy
  */
 public class Menu extends javax.swing.JFrame {
+
     FondoPanel fondo = new FondoPanel();
     Controler ctrl = new Controler();
+
     public Menu() {
         this.setContentPane(fondo);
         initComponents();
-        hub_menu.setBackground(new Color(10,86,18,120));
+        hub_menu.setBackground(new Color(10, 86, 18, 120));
         this.logOut_btn.setBorder(BorderFactory.createCompoundBorder(this.logOut_btn.getBorder(), BorderFactory.createEmptyBorder(0, 15, 0, 0)));
-        try{
-        count1.setText(ctrl.plantaPopular().get(0).getCantidad() +" "+ ctrl.plantaPopular().get(0).getNombre_clasi());
-        count2.setText(ctrl.plantaPopular().get(1).getCantidad() +" "+ ctrl.plantaPopular().get(1).getNombre_clasi());
-        count3.setText(ctrl.plantaPopular().get(2).getCantidad() +" "+ ctrl.plantaPopular().get(2).getNombre_clasi());
-        } catch(Exception e) {
-        count1.setText("");
-        count2.setText("Aun no hay plantas populares");
-        count3.setText("");
-        
-        }
         setIconImage(getIconImage());
+        actualizarContadores();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -218,6 +213,7 @@ public class Menu extends javax.swing.JFrame {
     Ingresar ing = new Ingresar();
     Listar lis = new Listar();
     Editar edit = new Editar();
+
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagen/icon_aplication.png"));
@@ -233,38 +229,53 @@ public class Menu extends javax.swing.JFrame {
 
     private void ingresarPlantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarPlantaMouseClicked
         ing.setVisible(true);
+        actualizarContadores();
     }//GEN-LAST:event_ingresarPlantaMouseClicked
 
     private void btnListarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnListarMouseClicked
         lis.setVisible(true);
+        actualizarContadores();
     }//GEN-LAST:event_btnListarMouseClicked
 
     private void modificarPlantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarPlantaMouseClicked
         edit.setVisible(true);
+        actualizarContadores();
     }//GEN-LAST:event_modificarPlantaMouseClicked
-    
-    class FondoPanel extends JPanel{
+
+    class FondoPanel extends JPanel {
+
         private Image imagen;
-        
+
         @Override
-        public void paint(Graphics g){
+        public void paint(Graphics g) {
             imagen = new ImageIcon(getClass().getResource("/imagen/576.png")).getImage(); // Designamos la ruta
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this); // La posicion
             setOpaque(false);
             super.paint(g);
         }
     }
-    
-    
-    
-    
-   
+
+    public void actualizarContadores() {
+        try {
+            count1.setText(ctrl.plantaPopular().get(0).getCantidad() + " " + ctrl.plantaPopular().get(0).getNombre_clasi());
+            count2.setText(ctrl.plantaPopular().get(1).getCantidad() + " " + ctrl.plantaPopular().get(1).getNombre_clasi());
+            count3.setText(ctrl.plantaPopular().get(2).getCantidad() + " " + ctrl.plantaPopular().get(2).getNombre_clasi());
+        } catch (Exception e) {
+            count1.setText("");
+            count2.setText("Aun no hay plantas populares");
+            count3.setText("");
+
+        }
+
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bienvenidoNoUsar;
     private javax.swing.JLabel btnListar;
-    private javax.swing.JLabel count1;
-    private javax.swing.JLabel count2;
-    private javax.swing.JLabel count3;
+    protected javax.swing.JLabel count1;
+    protected javax.swing.JLabel count2;
+    protected javax.swing.JLabel count3;
     private javax.swing.JLabel headTextNotUse;
     private javax.swing.JPanel hub_menu;
     private javax.swing.JLabel ingresarPlanta;

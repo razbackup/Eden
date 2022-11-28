@@ -267,6 +267,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Planta 3"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="count1">
       <Properties>
@@ -278,6 +281,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Planta 1"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="count2">
       <Properties>
@@ -289,6 +295,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Planta 2"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="headTextNotUse">
       <Properties>
