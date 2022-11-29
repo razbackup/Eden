@@ -13,6 +13,7 @@ import Controlador.Controler;
 import Controlador.Stop;
 import Modelo.Planta;
 import java.awt.Color;
+import java.awt.Toolkit;
 import javax.swing.BorderFactory;
 
 /**
@@ -27,6 +28,7 @@ public class Editar extends javax.swing.JFrame {
     public Editar() {
         this.setContentPane(fondo);
         initComponents();
+        setIconImage(getIconImage());
         this.panel.setBackground(new Color(10, 86, 18, 120));
         alertPanel.setVisible(false);
         txtName.setBorder(BorderFactory.createCompoundBorder(this.txtName.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 10)));
@@ -201,6 +203,11 @@ public class Editar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+        @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagen/icon_aplication.png"));
+        return retValue;
+    }
     Planta planta = new Planta();
     private void btnGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseClicked
         try {
