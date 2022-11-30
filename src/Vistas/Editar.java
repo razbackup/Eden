@@ -246,7 +246,7 @@ public class Editar extends javax.swing.JFrame {
         try {
             Planta p = ctrl.buscarPorID(Integer.parseInt(textFiltro.getText()));
             if (p.getNombre() == null) {
-                new Alerts("La planta buscada no existe").yellow(alertPanel, alertText);
+                new Alerts("Warning ,La planta buscada no existe").yellow(alertPanel, alertText);
             } else {
                 this.txtName.setText("");
                 this.txtPrecio.setText("");

@@ -18,8 +18,10 @@ import javax.swing.table.DefaultTableModel;
  * @author Vicente, Jeremy
  */
 public class Listar extends javax.swing.JFrame {
+
     FondoPanel fondo = new FondoPanel();
     Controler sv = new Controler();
+
     public Listar() {
         this.setContentPane(fondo);
         initComponents();
@@ -227,7 +229,7 @@ public class Listar extends javax.swing.JFrame {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagen/icon_aplication.png"));
         return retValue;
     }
-    
+
     private void btnActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseClicked
         new Alerts("Actualizado!").green(alertPanel, alertText);
         new Stop(2000) {
@@ -252,7 +254,7 @@ public class Listar extends javax.swing.JFrame {
         } else {
             lista = sv.listarPorClasificacion(clasificacion);
         }
-        txtContador.setText("Cantidad de: "+String.valueOf(sv.contadorPlantas(clasificacion)) + " plantas");
+        txtContador.setText("Cantidad de: " + String.valueOf(sv.contadorPlantas(clasificacion)) + " plantas");
         for (Planta p : lista) {
             nombre = p.getNombre();
             descripcion = p.getDescripcion();
@@ -266,6 +268,10 @@ public class Listar extends javax.swing.JFrame {
 
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+        textFiltro.setText("");
+        textFiltroElimianar.setText("");
+        DefaultTableModel modelo = (DefaultTableModel) this.itemTable.getModel();
+        modelo.setRowCount(0);
         this.dispose();
     }//GEN-LAST:event_btnSalirMouseClicked
 
