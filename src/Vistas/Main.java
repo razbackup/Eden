@@ -11,6 +11,7 @@ import javax.swing.*;
 import Controlador.Controler;
 import Modelo.Usuario;
 import Controlador.Alerts;
+import Controlador.Stop;
 
 /**
  *
@@ -151,6 +152,11 @@ public class Main extends javax.swing.JFrame {
             System.out.println(false);
             new Alerts("Warning, Puede que haya un campo en blanco").yellow(this.alertPanel, this.alertText);
         }
+        new Stop(2000) {
+                public void run() {
+                    new Alerts().offAlert(alertPanel, alertText);
+                }
+            };
     }//GEN-LAST:event_ingresarActionPerformed
 
     public static void main(String args[]) {
@@ -188,14 +194,6 @@ public class Main extends javax.swing.JFrame {
             setOpaque(false);
             super.paint(g);
         }
-    }
-
-    public void setColor(JButton btn) {
-        btn.setBackground(new Color(10, 0, 0, 100)); // Hover color BLACK
-    }
-
-    public void resetColor(JButton btn) {
-        btn.setBackground(new Color(10, 86, 18)); // Hover color GREEN
     }
 
     private String toCapitalize(String texto) {

@@ -1,6 +1,7 @@
 package Vistas;
 
 import Controlador.Controler;
+import Modelo.Planta;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -257,6 +258,9 @@ public class Menu extends javax.swing.JFrame {
 
     public void actualizarContadores() {
         try {
+            for (Planta p : ctrl.plantaPopular()) {
+                System.out.println(p.getCantidad());
+            }
             count1.setText(ctrl.plantaPopular().get(0).getCantidad() + " " + ctrl.plantaPopular().get(0).getNombre_clasi());
             count2.setText(ctrl.plantaPopular().get(1).getCantidad() + " " + ctrl.plantaPopular().get(1).getNombre_clasi());
             count3.setText(ctrl.plantaPopular().get(2).getCantidad() + " " + ctrl.plantaPopular().get(2).getNombre_clasi());

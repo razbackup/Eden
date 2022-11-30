@@ -43,6 +43,7 @@ public class Listar extends javax.swing.JFrame {
         eliminarTextNotUse = new javax.swing.JLabel();
         textFiltroElimianar = new javax.swing.JTextField();
         btnBorrar = new javax.swing.JButton();
+        txtContador = new javax.swing.JLabel();
         alertPanel = new javax.swing.JPanel();
         alertText = new javax.swing.JLabel();
 
@@ -148,6 +149,11 @@ public class Listar extends javax.swing.JFrame {
             }
         });
 
+        txtContador.setBackground(new java.awt.Color(0, 0, 0));
+        txtContador.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        txtContador.setForeground(new java.awt.Color(255, 255, 255));
+        txtContador.setText("Cantidad de: ");
+
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
@@ -157,7 +163,6 @@ public class Listar extends javax.swing.JFrame {
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tableItems, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelLayout.createSequentialGroup()
                         .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
@@ -169,18 +174,23 @@ public class Listar extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(textFiltroElimianar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(panelLayout.createSequentialGroup()
+                            .addComponent(titleNotUse)
+                            .addGap(90, 90, 90)
+                            .addComponent(txtContador)
+                            .addGap(43, 43, 43))
+                        .addComponent(tableItems, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(51, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(titleNotUse)
-                .addGap(357, 357, 357))
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(titleNotUse)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(titleNotUse)
+                    .addComponent(txtContador))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tableItems, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -242,6 +252,7 @@ public class Listar extends javax.swing.JFrame {
         } else {
             lista = sv.listarPorClasificacion(clasificacion);
         }
+        txtContador.setText("Cantidad de: "+String.valueOf(sv.contadorPlantas(clasificacion)) + " plantas");
         for (Planta p : lista) {
             nombre = p.getNombre();
             descripcion = p.getDescripcion();
@@ -255,7 +266,7 @@ public class Listar extends javax.swing.JFrame {
 
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_btnSalirMouseClicked
 
     private void btnBorrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBorrarMouseClicked
@@ -307,5 +318,6 @@ public class Listar extends javax.swing.JFrame {
     private javax.swing.JTextField textFiltro;
     private javax.swing.JTextField textFiltroElimianar;
     private javax.swing.JLabel titleNotUse;
+    private javax.swing.JLabel txtContador;
     // End of variables declaration//GEN-END:variables
 }

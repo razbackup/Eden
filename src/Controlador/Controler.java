@@ -15,7 +15,9 @@ import java.util.ArrayList;
 import Controlador.Validacion;
 
 public class Controler {
+
     Validacion val = new Validacion();
+
     public boolean login(Usuario newuser) {
         String query;
         ArrayList<Usuario> users = new ArrayList<>();
@@ -65,7 +67,7 @@ public class Controler {
         } catch (SQLException e) {
             System.out.println("Error SQL: " + e.getMessage());
         } catch (Exception ex) {
-            System.out.println("Error al encontrar usuario:  " + ex.getMessage());
+            System.out.println("Error al encontrar Planta:  " + ex.getMessage());
         }
         return false;
     }
@@ -76,7 +78,8 @@ public class Controler {
         try {
             Conexion coneX = new Conexion();
             Connection cnx = coneX.connection();
-            query = "SELECT id_planta ,nombre, stock, precio, descripcion, TIPO.nombre_clasi FROM PLANTA join TIPO on PLANTA.clasificacion = TIPO.clasificacion";
+            query = "SELECT id_planta ,nombre, stock, precio, descripcion, TIPO.nombre_clasi "
+                    + "FROM PLANTA join TIPO on PLANTA.clasificacion = TIPO.clasificacion ORDER BY 1 ASC";
             PreparedStatement stmt = cnx.prepareStatement(query);
             //defino el elemento dónde recibiré el resultado del SELECT
             ResultSet rs = stmt.executeQuery();
@@ -94,9 +97,9 @@ public class Controler {
             stmt.close();
             cnx.close();
         } catch (SQLException e) {
-            System.out.println("Error SQL al listar el usuario: " + e.getMessage());
+            System.out.println("Error SQL al listar Planta: " + e.getMessage());
         } catch (Exception ex) {
-            System.out.println("Error al encontrar usuario:  " + ex.getMessage());
+            System.out.println("Error al encontrar Planta:  " + ex.getMessage());
         }
 
         return plantas;
@@ -109,7 +112,7 @@ public class Controler {
             Conexion coneX = new Conexion();
             Connection cnx = coneX.connection();
             query = "SELECT id_planta ,nombre, stock, precio, descripcion, TIPO.nombre_clasi FROM PLANTA join TIPO on PLANTA.clasificacion = TIPO.clasificacion"
-                    + " WHERE TIPO.nombre_clasi = ? ORDER BY stock";
+                    + " WHERE TIPO.nombre_clasi = ? ORDER BY 1,3 DESC";
             PreparedStatement stmt = cnx.prepareStatement(query);
             stmt.setString(1, clasifi);
             //defino el elemento dónde recibiré el resultado del SELECT
@@ -168,7 +171,7 @@ public class Controler {
             Conexion coneX = new Conexion();
             Connection cnx = coneX.connection();
             query = "SELECT TIPO.nombre_clasi ,COUNT(TIPO.nombre_clasi) "
-                    + "FROM PLANTA join TIPO on PLANTA.clasificacion = TIPO.clasificacion GROUP BY TIPO.nombre_clasi";
+                    + "FROM PLANTA join TIPO on PLANTA.clasificacion = TIPO.clasificacion GROUP BY TIPO.nombre_clasi ORDER BY 2 DESC";
             PreparedStatement stmt = cnx.prepareStatement(query);
             //defino el elemento dónde recibiré el resultado del SELECT
             ResultSet rs = stmt.executeQuery();
@@ -188,8 +191,8 @@ public class Controler {
         }
         return plantas;
     }
-    
-    public Planta buscarPorID(int id){
+
+    public Planta buscarPorID(int id) {
         Planta planta = new Planta();
         String query;
         try {
@@ -200,28 +203,28 @@ public class Controler {
             stmt.setInt(1, id);
             //defino el elemento dónde recibiré el resultado del SELECT
             ResultSet rs = stmt.executeQuery();
-            if(rs.next()){
-            planta.setStock(rs.getInt("stock"));
-            planta.setPrecio(rs.getInt("precio"));
-            planta.setNombre(rs.getString("nombre"));
-            planta.setDescripcion(rs.getString("descripcion"));
+            if (rs.next()) {
+                planta.setStock(rs.getInt("stock"));
+                planta.setPrecio(rs.getInt("precio"));
+                planta.setNombre(rs.getString("nombre"));
+                planta.setDescripcion(rs.getString("descripcion"));
             } else {
-             return new Planta();   
+                return new Planta();
             }
             rs.close();
             stmt.close();
             cnx.close();
         } catch (SQLException e) {
-            System.out.println("Error SQL al listar el usuario: " + e.getMessage());
+            System.out.println("Error SQL al listar Planta: " + e.getMessage());
             return new Planta();
         } catch (Exception ex) {
-            System.out.println("Error al encontrar usuario:  " + ex.getMessage());
+            System.out.println("Error al encontrar Planta:  " + ex.getMessage());
             return new Planta();
         }
         return planta;
     }
-    
-    public boolean modificarPlanta(Planta planta){
+
+    public boolean modificarPlanta(Planta planta) {
         String query;
         try {
             Conexion coneX = new Conexion();
@@ -234,7 +237,7 @@ public class Controler {
             System.out.println(planta.getPrecio());
             System.out.println(planta.getStock());
             System.out.println(planta.getId_producto());
-            if (planta.getId_producto() != -99){
+            if (planta.getId_producto() != -99) {
                 stmt.setString(1, planta.getNombre());
                 stmt.setInt(2, planta.getStock());
                 stmt.setInt(3, planta.getPrecio());
@@ -255,4 +258,39 @@ public class Controler {
         }
         return false;
     }
+
+    public int contadorPlantas(String clas) {
+        String query;
+        int contador = 0;
+        try {
+            Conexion coneX = new Conexion();
+            Connection cnx = coneX.connection();
+            PreparedStatement stmt;
+            if (clas.equals("")) {
+                query = "SELECT COUNT(TIPO.nombre_clasi) FROM PLANTA join TIPO on PLANTA.clasificacion = TIPO.clasificacion";
+                stmt = cnx.prepareStatement(query);
+            } else {
+                query = "SELECT COUNT(TIPO.nombre_clasi) FROM PLANTA join TIPO on PLANTA.clasificacion = TIPO.clasificacion "
+                        + "WHERE TIPO.nombre_clasi = ?";
+                stmt = cnx.prepareStatement(query);
+                stmt.setString(1, clas);
+            }
+            //defino el elemento dónde recibiré el resultado del SELECT
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                contador = rs.getInt("COUNT(TIPO.nombre_clasi)");
+            }
+            rs.close();
+            stmt.close();
+            cnx.close();
+        } catch (SQLException e) {
+            System.out.println("Error SQL al listar Planta: " + e.getMessage());
+            return 0;
+        } catch (Exception ex) {
+            System.out.println("Error al encontrar Planta:  " + ex.getMessage());
+            return 0;
+        }
+        return contador;
+    }
+
 }

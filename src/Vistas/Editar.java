@@ -220,10 +220,10 @@ public class Editar extends javax.swing.JFrame {
                 planta.kill_id_Planta(planta);
                 new Alerts("Planta editada con exito").green(alertPanel, alertText);
             } else {
-                new Alerts("Porfavor vuelve a consultar una planta").yellow(alertPanel, alertText);
+                new Alerts("Warning, Porfavor vuelve a consultar una planta").yellow(alertPanel, alertText);
             }
         } catch (Exception e) {
-            new Alerts("Porfavor consulta una planta").yellow(alertPanel, alertText);
+            new Alerts("Warning, Porfavor consulta una planta").yellow(alertPanel, alertText);
         }
         new Stop(2000) {
             public void run() {
@@ -238,6 +238,7 @@ public class Editar extends javax.swing.JFrame {
         txtDesc.setText("");
         txtPrecio.setText("");
         txtStock.setText("");
+        textFiltro.setText("");
         this.dispose();
     }//GEN-LAST:event_btnSalirMouseClicked
 
@@ -259,11 +260,11 @@ public class Editar extends javax.swing.JFrame {
                 try {
                     planta.setId_producto(Integer.parseInt(textFiltro.getText()));
                 } catch (Exception e) {
-                    new Alerts("El dato ingresado en ID es invalido!").red(alertPanel, alertText);
+                    new Alerts("Error, El dato ingresado en ID es invalido!").red(alertPanel, alertText);
                 }
             }
         } catch (Exception e) {
-            new Alerts("Selecciona un dato").yellow(alertPanel, alertText);
+            new Alerts("Warning, Selecciona un dato").yellow(alertPanel, alertText);
         }
         new Stop(2000) {
             public void run() {
